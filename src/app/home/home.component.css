@@ -1,0 +1,156 @@
+.container {
+    display: grid;
+    /* grid-template-columns: 200px 500px; */
+    grid-template-rows: 80px calc(100vh - 120px) 400px;
+    grid-gap: 20px;
+    
+  }
+
+
+  .rowitem1 {
+    /* We center the contents of these items. You can also do this with flexbox too! */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 20px;
+    
+    border: 5px solid rgba(0, 0, 0, 0.03);
+   
+    
+    
+  }
+  
+  .item p {
+    margin: 0 0 5px 0;
+  }
+
+
+    /* Each item in our grid will contain numbers */
+    .rowitem {
+      /* We center the contents of these items. You can also do this with flexbox too! */
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border: 5px solid rgba(0, 0, 0, 0.03);
+      border-radius: 3px;
+      font-size: 35px;
+      background-color: var(--yellow); /* best colour */
+    }
+    
+    .item p {
+      margin: 0 0 5px 0;
+    }
+
+    .leftsec{
+      display: grid;
+      justify-content: center;
+      align-items: center;
+     background-color: #fff;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-gap: 10px;
+
+    }
+    .middlesec{
+      display: grid;
+      background-color: #fff;
+       justify-content: center;
+      align-items: center;
+     
+    }
+    .rightsec{
+      display: grid;
+      background-color: #fff;
+     
+    }
+
+    .logoleftsec{
+      text-align: center;
+    }
+
+    .gridicon {
+      font-size: 3rem;
+      text-align: right;
+      
+    }
+
+    .listdropdown{
+      font-size: 2rem;
+      text-align: left;
+    }
+
+    *:focus {
+      outline: none !important;
+      border: 0 !important;
+  }
+
+
+  .searchContainer {
+    display: grid;
+    grid-template-columns:1.5rem 4fr 1fr;
+    width:1fr;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .searchContainer:focus-within i {
+    display: none;
+  }
+  
+  .searchContainer:focus-within .searchBox{
+    grid-column:1/4;
+  }
+  
+  .searchContainer:focus-within .searchBox::placeholder {
+    color:transparent;
+  }
+  
+  .searchIcon {
+    padding: 1rem;
+    grid-row:1;
+    grid-column:1/2;
+    z-index:2
+  }
+  
+  .searchBox {
+    border: 0;
+    padding: 1rem;
+    grid-column:2/4;
+    grid-row:1;
+    outline:none;
+  }
+  
+  .searchButton {
+    background: #538AC5;
+    border: 0;
+    color: white;
+    padding: 1rem;
+    border-radius: 0;
+    grid-column:4/5;
+    grid-row:1;
+  }
+
+
+
+
+/* searchbox
+  https://codepen.io/Paulie-D/pen/NwZGqz */
+
+
+  input[type=text] {
+    width: 180px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /* background-image: url('searchicon.png'); */
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}

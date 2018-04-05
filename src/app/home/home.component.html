@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="rowitem1">
+    <div class="leftsec">
+      <div class="logoleftsec">
+        logo
+      </div>
+      <div class="gridicon">
+        <i class="fa fa-th-large grid-icon" aria-hidden="true"></i>
+      </div>
+
+      <div class="listdropdown">
+
+        <button mat-button [matMenuTriggerFor]="menu" tabIndex="0"> Categories
+          <i class="material-icons">arrow_drop_down</i>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </div>
+
+    </div>
+    <div class="middlesec">
+
+  <form>
+        <div class="searchContainer browser-default">
+          <i class="fa fa-search searchIcon"></i>
+          <input class="searchBox browser-default" type="search" name="search" placeholder="Search...">
+          <input type="submit" value="Search" class="searchButton browser-default"> 
+        </div>
+      </form>
+    </div>
+    <div class="rightsec">
+      <a href="" [routerLink]="['/auth/sign-in']">SIGN IN</a>
+      <a href="" [routerLink]="['/auth/sign-up']">SIGN up</a>
+    </div>
+  </div>
+  <div class="rowitem">2</div>
+  <div class="rowitem">3</div>
+
+</div>
