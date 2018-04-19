@@ -1,0 +1,208 @@
+.header {
+	grid-area: header;
+	display: grid;
+	height: 93px;
+width: 100%;
+	align-content: center;
+	
+	/* grid-template-columns: 1fr 1fr 3fr 1fr 1fr;	 */
+	grid-template-columns: 2fr 2fr 1.75fr 2fr ;	
+
+  border-bottom: solid 1px #dcdcdc;
+}
+
+.logo{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	display: none;
+	
+
+}
+
+
+.logo1{
+	display: grid;
+	justify-content: center;
+	
+}
+
+
+.logo2{
+	display: grid;
+	align-content: center;
+	
+}
+
+
+.catitem{
+	display: grid;
+	
+	
+	align-content: center;
+}
+
+.searcitem {
+	display: grid;
+	align-content: center;
+}
+
+
+.searchContainer {
+	display: grid;
+	grid-template-columns:3rem 4fr 1fr;
+	width:95%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	min-width: 300px;
+}
+
+.searchContainer:focus-within .searchBox{
+  	grid-column:1/4;
+}
+
+.searchContainer:focus-within .searchBox::placeholder {
+	color:transparent;
+} 
+
+.searchIcon {
+	padding: 1.2rem;
+	grid-row:1;
+	grid-column:4;
+	z-index:2
+}
+
+.searchBox {
+	border: 0;
+	padding: 1.2rem;
+	grid-column:1/4;
+	grid-row:1;
+	outline:none;
+	font-size: 1.6rem;
+	font-weight: 100;
+}
+
+::-webkit-input-placeholder {
+	font-family: OpenSans;
+	color: #a3a2a2;
+	font-weight: 100;
+	font-size: 1.5rem;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-family: OpenSans;
+	color: #a3a2a2;  
+	font-weight: 100;
+	font-size: 1.5rem;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	font-family: OpenSans;
+	color: #a3a2a2;  
+	font-weight: 100;
+	font-size: 1.5rem;
+}
+
+:-ms-input-placeholder {  
+	font-family: OpenSans;
+	color: #828282;  
+	font-weight: 100;
+	font-size: 1.5rem;
+}
+
+
+.signin {
+	display: grid;
+	justify-content: right;
+	align-content: center;
+}
+
+.signup {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.signin-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #ffffff;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #444;
+	font-family: OpenSans;
+	color: #828282;  
+	font-weight: 100;
+	font-size: 1.5rem;
+	align-content: center;
+	margin-right: 30px;
+	
+	
+}
+
+.signup-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #f98e08;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+	align-content: center;
+}
+
+
+/* *** */
+
+/* height: 2px;
+  border: solid 1px #dcdcdc; */
+
+
+  .sticky {
+	position: fixed;
+	top: 0;
+	
+width: 100%;
+	grid-area: header;
+	display: grid;
+	height: 93px;
+
+	align-content: center;
+	/* grid-template-areas: 1fr 1fr; */
+	grid-template-columns: 1fr 1fr 3fr 1fr 1fr;	
+	
+  border-bottom: solid 1px #dcdcdc;
+  background-color: #ffffff;
+
+  z-index: 999;
+  }
+
+  .notification{
+	  display: grid;
+	  justify-content: center;
+  }
+
+  .wish{
+	display: grid;
+	justify-content: center;
+}
+
+.cart{
+	display: grid;
+	justify-content: center;
+}
+.profile{
+	display: grid;
+	justify-content: center;
+}

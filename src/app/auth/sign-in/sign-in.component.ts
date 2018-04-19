@@ -90,7 +90,8 @@ export class SignInComponent implements OnInit {
 
             this._authservice.userRole.next(obj.isadmin);
 
-            this._authservice.setUserLoggedIn();
+          //  this._authservice.setUserLoggedIn();
+            this._authservice.setLoginTrue();
 
             this._cdr.markForCheck();
             this._router.navigate(['/portal']);

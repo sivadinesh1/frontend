@@ -1,0 +1,94 @@
+
+.footer {
+	grid-area: footer;
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr 2fr;
+	grid-template-rows: 1fr;
+	padding: 10px;
+	min-height: 180px;
+	background-color: #f6f6f6;
+}
+
+.footer-item1{
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+.footer-item2{
+	display: grid;
+	justify-content: left;
+	align-content: center;
+}
+
+.footer-item3{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer3-subitem{
+	display: grid;
+
+}
+
+.footer3-subitem5{
+	display: grid;
+	grid-column: 1/4;
+	justify-content: center;
+	align-content: center;
+	min-height: 80px;
+}
+
+.footer-item4{
+	display: grid;
+	justify-content: left;
+	align-content: center;
+}
+
+.footer1-subitem {
+	display: grid;
+	padding: 8px;
+	
+	font-family: OpenSans;
+	color: #828282;  
+	font-weight: 400;
+	font-size: 1.6rem;
+
+
+}
+
+.footer4-subitem1{
+	font-family: OpenSans;
+	
+	font-size: 1.4rem;
+
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: left;
+	color: #1c2550;
+
+
+}
+
+.footer {
+	background-color: f6f6f6;
+}
+
+.outlinks {
+	font-family: "Open Sans";
+	font-size: 1.4rem !important;
+	font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+	color: #1c2550;
+}
+
+  

@@ -1,42 +1,137 @@
+<div class="wrapper">
+  <!-- <app-menubar></app-menubar> -->
 
-<div class="container">
-  <div class="rowitem1">
-    <div class="leftsec">
-      <div class="logoleftsec">
-        logo
-      </div>
-      <div class="gridicon">
-        <i class="fa fa-th-large grid-icon" aria-hidden="true"></i>
-      </div>
-
-      <div class="listdropdown">
-
-        <button mat-button [matMenuTriggerFor]="menu" tabIndex="0"> Categories
-          <i class="material-icons">arrow_drop_down</i>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
-        </mat-menu>
-      </div>
-
-    </div>
-    <div class="middlesec">
-
-  <form>
-        <div class="searchContainer browser-default">
-          <i class="fa fa-search searchIcon"></i>
-          <input class="searchBox browser-default" type="search" name="search" placeholder="Search...">
-          <input type="submit" value="Search" class="searchButton browser-default"> 
+  <div class="content">
+    <div class="header1">
+      <!-- Video from coverr.co -->
+      <video class="video-bg" preload= "true" autoplay loop oncanplay="this.muted=true">
+        <source src="/assets/SkillmaTic.mp4" type="video/mp4" />
+        <source src="/assets/SkillmaTic.webm" type="video/webm" />
+      </video>
+      <div class="video-overlay">
+        <div class="cap1">
+          <img src="/assets/images/skillmaticlogobig.png">
         </div>
-      </form>
-    </div>
-    <div class="rightsec">
-      <a href="" [routerLink]="['/auth/sign-in']">SIGN IN</a>
-      <a href="" [routerLink]="['/auth/sign-up']">SIGN up</a>
-    </div>
-  </div>
-  <div class="rowitem">2</div>
-  <div class="rowitem">3</div>
+        <div class="cap1">
+          <img src="/assets/images/skillma-tic.svg">
+        </div>
+        <div class="cap1">
+          <h3> Easy way to catch your Dreams! Opt for a free Skill Evaluation</h3>
+        </div>
+        <div class="cap1">
+          <form>
+            <div class="searchhome">
 
+              <input class="searchhomebox  browser-default" type="search" name="search" placeholder="Enter Your Email Id">
+
+              <input type="submit" value="Evaluate" class="searchButton1">
+            </div>
+          </form>
+        </div>
+
+        <div class="cap1" >
+          <img src="/assets/images/play-button.png?v=1" style="cursor: pointer;" (click)="videoDialog()">
+        </div>
+        <div class="playvideo"   >
+          <div style="cursor: pointer;" (click)="videoDialog()"> Play Full Video</div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+  <div class="whyskillmatic">
+
+
+    <div class="grid-item1">Why Register Skillmatic</div>
+    <div class="grid-item2" *ngFor="let profile of profiles">
+
+
+
+      <div class="card horizontal customcard z-depth-0">
+        <div class="card-image ">
+
+          <img src="{{profile.pic}}" alt="">
+        </div>
+        <div class="card-stacked">
+          <span class="card-title titleformat"> {{profile.caption}} </span>
+
+          <div class="card-content descformat">
+            {{profile.desc}} ... <a href="" class="bluelink"
+            [routerLink]="['/', profile.caption | lowercase]"> Know More. </a> 
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+  <div class="toptrends">
+
+
+    <div class="trend-item1">Top Industry Trends</div>
+    <div class="trend-item2" *ngFor="let industrytrend of industrytrends">
+
+      <div class="card">
+        <div class="card-image">
+          <img src="{{industrytrend.pic}}" alt="">
+
+        </div>
+        <div class="card-content">
+          {{industrytrend.desc}}... <a href="" class="bluelink"
+          [routerLink]="['/']"> Know More. </a>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+<!-- <div class="ourpartners">
+    <div class="partner-overlay">
+      <div class="our-partners">
+        Our Partners
+      </div>
+       
+        <div class="grid-univ" > 
+          <div class="grind-univ-items" *ngFor="let university of universities">
+                <img src="{{university.pic}}" alt="">
+                </div>
+       </div>
+       
+
+    </div>
+ </div> -->
+
+ <div class="getstarted">
+   <div class="getstartedcaption">
+     JOIN SKILLMATIC
+   </div>
+   <!-- <div class="getstarteddesc">
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque ipsa suscipit consectetur sunt sed, animi praesentium est fugiat corrupti natus deleniti alias, magnam vitae reiciendis nostrum! Blanditiis fugit quasi eos suscipit debitis enim aut itaque possimus quae tempore, distinctio, voluptatibus quod ullam excep
+   </div> -->
+   <div class="getstartedbtn">
+      <div class="getstarted-btn" (click)="signupDialog()" style="cursor: pointer;">Get Started</div>
+    </div>
+
+ </div>
+
+  <!-- <app-footer></app-footer> -->
 </div>

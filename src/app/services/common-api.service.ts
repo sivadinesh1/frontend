@@ -14,11 +14,15 @@ export class CommonApiService {
 
   getCourses() {
     return this._httpClient.get(this.backendUrl + '/api/getcourses/');
+  }  
 
-}  
+  getInstitutions() {
+    return this._httpClient.get(this.backendUrl + '/api/getallinstitutions/');
+  }
 
+  
 
-
+  
 
 }
 

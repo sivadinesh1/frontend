@@ -11,6 +11,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class AuthService {
     backendUrl = environment.backendUrl;
 
+
+    private checklogin =  new BehaviorSubject<boolean>(false);
+    cast = this.checklogin.asObservable();
+
     isUserLoggedIn: boolean = false;
   
     isCurrentUserSubject:BehaviorSubject<string> = new BehaviorSubject<string>(this.getcurrentuser1());
@@ -23,6 +27,11 @@ export class AuthService {
     userRole:BehaviorSubject<string> = new BehaviorSubject<string>(this.getUserRole());
 
     constructor(private _httpclient: HttpClient) {}
+
+    setLoginTrue() {
+        console.log('is in userlogged in set XXX');
+       this.checklogin.next(true);
+    }
 
 
     setUserLoggedIn() {
@@ -119,9 +128,13 @@ export class AuthService {
         return this._httpclient.get(url, {withCredentials: true});	
     }
 
-    // getUserLoggedIn() {
-    //     return false;
-    // }
 
+    register(registerform: any) {
+        return this._httpclient.post(this.backendUrl + '/api/register', registerform);
+      }
 
+      sendOTP(mobilenumber: any) {
+        return this._httpclient.post(this.backendUrl + '/api/sendotp/', mobilenumber, {observe: 'response'});
+      }
+    
 }

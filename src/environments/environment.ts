@@ -5,7 +5,8 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://localhost:8080',
+  // backendUrl: 'http://localhost:8080',
+  backendUrl: 'http://localhost:8081',
   imagebaseurl: 'http://localhost:4200/',
   domain: 'http://localhost',
  
