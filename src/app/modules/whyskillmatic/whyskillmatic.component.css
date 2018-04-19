@@ -1,0 +1,376 @@
+.content {
+	grid-area: content;
+}
+
+
+
+.playvideo {
+	font-size: calc(0.3em + 1vw);
+	font-weight: 100;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.4);
+}
+
+.cap1{
+    padding: 10px;
+    margin: auto;
+}
+	
+.cap2{
+width: 80%;
+margin: auto;
+}
+
+.header1 {
+	/* Create grid spanning viewport width & height */
+	display: grid;
+	grid-template-rows: 70vh;
+	overflow: hidden;
+	box-shadow: 0 0.5em 0.5em rgba(0, 0, 0, 0.7);
+}
+
+.video-bg {
+	/* Span the full grid */
+	grid-area: var(--fullGrid);
+
+	/* Re-size video to cover full screen while maintaining aspect ratio */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+	/* Display video below overlay */
+	z-index: -1;
+}
+
+
+
+.video-bg::-webkit-media-controls {
+	display: none !important;
+}
+
+.video-overlay {
+	/* Span the full grid */
+	grid-area: var(--fullGrid);
+
+	/* Center Content */
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+
+	/* Semi-transparent background */
+	background-color: rgba(0, 0, 0, 0.55);
+}
+
+/* .video-overlay {
+
+	grid-area: var(--fullGrid);
+
+
+	display: grid;
+	justify-content: center;
+	align-content: center;
+    text-align: center;
+    background-image: url("/assets/images/seeker-bg.jpg"); 
+    
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
+
+	background-color: rgba(0, 0, 0, 0.55);
+} */
+
+h3 {
+	font-size: calc(1em + 1.6vw);
+	font-weight: 200;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.4);
+}
+
+h4 {
+	font-size: calc(1em + 0.7vw);
+	font-weight: 100;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+	color: #fff;
+	text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.4);
+}
+
+
+.vintage{
+    background-color: #caeaf2;
+    
+  }
+  .vintage img{
+     mix-blend-mode: multiply;
+    -webkit-filter: grayscale(100%) contrast(1.5);
+    filter: grayscale(100%) contrast(1.5);
+  }
+  .vintage::after{
+    background-color: #2cd6e1;
+    mix-blend-mode: lighten;
+  }
+
+
+.rowfive {
+	display: grid;
+	font-weight: 100;
+	font-family: OpenSans;
+	font-size: 2rem !important;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+	justify-content: space-around;
+	align-content: center;
+	
+	padding: 40px;
+	grid-gap: 10px;
+	border: 0px solid orangered;
+}
+
+
+.rowfive-item1 {
+	display: grid;
+grid-column: 1/-1;
+border: 0px solid green;
+
+
+font-family: "Open Sans";
+
+font-size: 2.1rem !important;
+
+
+text-align: center;
+width: 70%;
+margin: auto;
+
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: 1.2px;
+text-align: center;
+color: #4b5766;
+
+}
+
+
+.rowsix {
+	display: grid;
+	font-weight: 100;
+	font-family: OpenSans;
+	font-size: 2rem !important;
+	grid-template-columns: 1fr 2fr;
+	
+	justify-content: center;
+	align-content: center;
+	width: 80%;
+	margin: auto;
+	
+}
+
+
+.rowsix-item1 {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+}
+
+.rowsix-item2{
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	padding: 30px;
+
+
+font-family: "Open Sans";
+
+font-size: 2rem !important;
+
+
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #4b5766;
+	
+}
+
+.textstyle {
+	color: #f98e08;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+
+.textdesc{
+
+font-family: "Open Sans";
+
+font-size: 1.6rem !important;
+
+
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+color: #828282;
+}
+
+.leftalignedtxt{
+    display: inline-block;
+    text-align: center;
+	width: 30%;
+	margin: auto;
+    border: 1px solid #fff;
+}
+
+.rightalignedtxt{
+    display: inline-block;
+    text-align: center;
+    width: 49%;
+    border: 1px solid #fff;
+}
+
+.carousel-slider{
+	height: 450px !important;
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: orange !important;
+}
+
+ul.indicators {
+	background-color: orange !important;
+}
+
+.carousel .indicators .indicator-item {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 24px 4px;
+    background-color: rgba(192,192,192)!important;
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    border-radius: 50%;
+}
+
+.carousel-indicators li {
+    
+    background-color: #0000ff; 
+}
+.carousel-indicators .active {
+ 
+    background-color: #ffff99;
+}
+
+
+.getstarted {
+	display: grid;
+	grid-area: getstarted;
+	grid-template-columns: 1fr;
+	grid-template-rows: 3fr;
+	grid-gap: 5px;
+	background-color: #ffffff;
+	  
+	  /* padding: 10px; */
+	  max-width: 100%;
+	  min-height: 250px;
+
+	  align-content: center;
+	font-weight: 100;
+	font-size: 2rem !important;
+}
+
+.getstarted >div {
+	display: grid;
+	max-width: 100%;
+	
+	
+}
+
+
+.getstartedcaption {
+	display: grid;
+	font-weight: 100;
+	font-family: "Open Sans";
+	
+
+	justify-content: center;
+	align-content: center;
+	
+  font-size: 26px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1c2550;
+}
+
+.getstarteddesc {
+	display: grid;
+	
+	font-family: "Open Sans";
+	justify-content: center;
+	align-content: center;
+	margin: 0 10%;
+
+	font-family: OpenSans;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #828282;
+}
+
+.getstartedbtn{
+	display: grid;
+	font-weight: 100;
+	font-family: "Open Sans";
+	font-size: 2rem !important;
+	
+	justify-content: center;
+	align-content: center;
+	margin: 20px 0px;
+
+}
+
+
+.getstarted-btn {
+	display: grid;
+	align-content: center;
+	text-align: center;
+	background-color: #f98e08;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: "Open Sans";
+	font-weight: 400;
+	font-size: 1.6rem;
+
+}
+
+
+.emptydiv{
+	height: 100px;
+}

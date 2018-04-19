@@ -1,0 +1,80 @@
+
+ <form (ngSubmit)="onSubmit()" [formGroup]="signinForm">
+<div class="sign-in-form">
+<div class="welcom">Welcome Back </div>
+<div class="welcom">We are glad to see you </div>
+
+
+   
+
+<div class="mainform">
+
+    <mat-form-field>
+      <mat-select placeholder="Select Category" name="profile" 
+      class="catstyle"
+      formControlName="profile" #profile required>
+        <mat-option *ngFor="let profile of profiles; " [value]="profile">
+          {{ profile }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="signinForm.get('profile').hasError('required') && signinForm.get('profile').touched">
+        Category is
+      <strong>Required</strong>
+    </mat-error>
+</mat-form-field>
+    
+   
+
+      
+</div>
+
+
+  <div class="emailline">
+    <mat-form-field>
+      <input matInput placeholder="Email ID" type="email" id="emailid" 
+      formControlName="emailid" required name="emailid" class="browser-default emailsize">
+    </mat-form-field>
+  </div>
+
+
+<div class="passline">
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" id="password" 
+    formControlName="password" required name="password"
+      class="browser-default emailsize">
+  </mat-form-field>
+</div>
+
+<div class="rememberme">
+  <div class="chkbox">
+
+      <mat-checkbox   
+      formControlName="rememberme"
+      name="rememberme" > Remember Me</mat-checkbox>
+      
+
+    </div>
+  <div class="forgotpass">
+    <a href="">Forgot Password?</a>
+  </div>
+</div>
+
+ <div class="submitline">
+  <button class="btn waves-effect waves-light  cyan accent-4
+   button" [disabled]=!signinForm.valid type="submit"
+    name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+ </div>
+  
+    <div class="sign-up-error" *ngIf="responsemsg?.length > 0 ">{{responsemsg}}</div>
+   
+
+    <div class="row black-text ">
+        <p class="black-text center-align">
+          Dont have an account? <a><span (click)="signupDialog()">Sign Up</span></a> 
+        </p>
+      </div>
+
+</div>
+</form>

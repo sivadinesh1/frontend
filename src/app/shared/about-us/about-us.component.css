@@ -1,0 +1,421 @@
+.wrapper {
+	background-color: transparent;
+	color: #444;
+	top:200px;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-areas:
+	"header"
+    "aboutus"
+	"footer"
+}
+
+
+@media only screen and (min-width: 500px)  {
+	.wrapper {
+		grid-template-columns: 1fr;
+		grid-template-areas:
+		"header"
+	
+		"aboutus"
+		"footer";
+	}
+}
+
+@media only screen and (min-width: 600px)   {
+	.wrapper {
+		grid-gap: 20px;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+		"header"
+		"aboutus"
+		"footer";
+		max-width: 100%;
+	}
+}
+
+.aboutus {
+	display: grid;
+	grid-area: aboutus;
+	grid-template-columns: 1fr;
+	grid-template-rows: 3fr;
+	grid-gap: 10px;
+	/* background-color: #f8f7fc; */
+	  
+	  /* padding: 10px; */
+	  max-width: 100%;
+	  min-height: 300px;
+
+	  align-content: center;
+	
+}
+
+.aboutus >div {
+	display: grid;
+	max-width: 100%;
+	
+	
+}
+
+
+.rowone {
+	display: grid;
+	font-weight: 200;
+	
+	font-size: 2.2rem !important;
+background-color: #ffffff;
+	justify-content: center;
+
+	
+}
+
+.rowtwo {
+	display: grid;
+	font-weight: 100;
+	font-family: OpenSans;
+	font-size: 2rem !important;
+	
+	justify-content: center;
+	align-content: center;
+	
+}
+
+.rowthree{
+	display: grid;
+	background-size: cover;
+	-moz-background-size: cover;  /* Firefox 3.6 */
+	background-position: center;  /* Internet Explorer 7/8 */
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+  
+  .rowthree img {
+	width: 100%;
+	height: auto;
+	max-height: 400px;
+	background-size: cover;
+	-moz-background-size: cover;  /* Firefox 3.6 */
+	background-position: center;  /* Internet Explorer 7/8 */
+  }
+
+  .rowfour {
+	display: grid;
+	font-weight: 100;
+	font-family: OpenSans;
+	font-size: 2rem !important;
+	background-color: #f6f6f6;
+	justify-content: center;
+	align-content: center;
+	padding: 20px;
+}
+
+.rowfive {
+	display: grid;
+	font-weight: 100;
+	font-family: OpenSans;
+	font-size: 2rem !important;
+	grid-template-columns: 1fr 1fr 1fr;
+	
+	justify-content: space-around;
+	align-content: center;
+	
+	
+	grid-gap: 10px;
+	border: 0px solid orangered;
+}
+
+
+.rowfive-item1 {
+	display: grid;
+grid-column: 1/-1;
+border: 0px solid green;
+text-align: center;
+color: #1c2550;
+padding: 40px;
+
+font-family: "Open Sans";
+
+font-size: 2.7rem !important;
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: center;
+
+}
+
+
+
+.rowsix-item2 {
+	display: grid;
+text-align: center;
+color: #828282;
+padding: 20px;
+
+font-family: "Open Sans";
+
+font-size: 1.8rem !important;
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: normal;
+text-align: left;
+
+}
+
+
+.rowfive-item2 {
+	display: grid;
+
+border: 2px solid blue;
+}
+
+.rowfive-item3 {
+	display: grid;
+
+	border: 2px solid yellow;
+}
+
+
+.rowsix {
+	display: grid;
+	font-weight: 100;
+	font-family: "Open Sans";
+	font-size: 2rem !important;
+	grid-template-columns: 1fr 2fr;
+	
+	justify-content: center;
+	align-content: center;
+	width: 80%;
+	margin: auto;
+	
+}
+
+
+.rowsix-item1 {
+	display: grid;
+	justify-content: center;
+	align-content: center;
+
+}
+
+
+
+
+
+.rowone-item1{
+	display: grid;
+	align-content: center;
+	text-align: center;
+	align-content: center;
+	
+	font-family: "Open Sans";
+
+	font-size: 2.7rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #f98e08;
+}
+
+.rowone-item2{
+	display: grid;
+	align-content: center;
+	text-align: center;
+
+	font-family: "Open Sans";
+
+	
+
+	width: 80%;
+	margin: auto;
+	padding: 20px 0px;
+font-size: 1.8rem;
+	font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #828282;
+}
+
+.rowfour-item1{
+	display: grid;
+	align-content: center;
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	padding: 40px;
+	font-family: "Open Sans";
+
+	font-size: 2.7rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #f98e08;
+}
+
+.rowfour-item2{
+	display: grid;
+	align-content: center;
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	font-size: 1.8rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #828282;
+}
+
+.rowfour-item3{
+	display: grid;
+	align-content: center;
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	font-size: 1.8rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #828282;
+}
+
+
+.rowsix {
+	display: grid;
+	font-weight: 200;
+	font-family: "Open Sans";
+	font-size: 2.2rem !important;
+background-color: #ffffff;
+	justify-content: center;
+	align-content: center;
+	
+}
+
+
+.rowseven {
+	display: grid;
+	font-weight: 200;
+	font-family: "Open Sans";
+	font-size: 2.2rem !important;
+background-color: #f6f6f6;
+	justify-content: center;
+	align-content: center;
+	
+}
+
+
+
+.rowseven-item1{
+	display: grid;
+	align-content: center;
+	text-align: center;
+	padding: 40px;
+
+	font-family: "Open Sans";
+	font-size: 2.8rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #1c2550;
+
+
+}
+
+.rowseven-item2{
+	display: grid;
+	align-content: center;
+	text-align: center;
+
+	font-family: "Open Sans";
+	font-size: 1.8rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #828282;
+
+	width: 80%;
+	margin: auto;
+	padding: 30px;
+
+}
+
+.profile{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	margin: auto;
+	width: 80%;
+	background-color: #f6f6f6;
+	padding: 10px;
+	justify-items: center;
+
+}
+
+.profile > div {
+	grid-column: 1fr;
+	height: auto;
+	width: 225px;
+	grid-template-rows: 1fr 1fr 1fr;
+	text-align: center;
+
+}
+
+
+
+.pro-desig {
+	font-family: "Open Sans";
+	font-size: 1.6rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #1c2550;
+
+}
+
+
+.pro-desc {
+	font-family: "Open Sans";
+	font-size: 1.3rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #828282;
+
+}
+
+.emptydiv{
+	height: 100px;
+}

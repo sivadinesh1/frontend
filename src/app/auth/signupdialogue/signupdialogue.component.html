@@ -1,0 +1,69 @@
+<div class="whyskillmatic">
+
+  <ng-container *ngIf="this.profiletype=='default'">
+
+    <div class="grid-item1">Select Your Category</div>
+    <div class="grid-item2" *ngFor="let profile of profiles let i = index">
+
+      <div class="card horizontal customcard z-depth-0" style="cursor: pointer;" (click)="selectprofile(profile, i)">
+        
+        <div class="card-image ">
+          <img src="{{profile.pic}}" alt="">
+        </div>
+
+        <div class="card-stacked">
+          <!-- <span class="card-title "> -->
+            <!-- <input id="radio-{{i}}" class="radio-custom" name="radiogroup" type="radio">
+            <label for="radio-{{i}}" class="radio-custom-label"> -->
+              <!-- <span >{{profile.caption}} </span> -->
+            <!-- </label> -->
+          <!-- </span> -->
+
+          <div class="card-content ">
+              <span class="captions">{{profile.caption}} </span><br>
+              <span class="captionsdesc">{{profile.desc}} </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="grid-item3-error">
+      <span *ngIf="errmsg">
+        {{this.errmsg}}
+      </span>
+    </div>
+
+    <div class="grid-item3">
+      <!-- <span class="next-btn" style="cursor: pointer" (click)=onNext()>Next</span> -->
+    </div>
+
+  </ng-container>
+
+  <div class="profilebox">
+
+ 
+  <ng-container *ngIf="this.profiletype=='Seeker'">
+    <app-seeker-registration></app-seeker-registration>
+  </ng-container>
+
+  <ng-container *ngIf="this.profiletype=='Provider'">
+    <app-provider-registration></app-provider-registration>
+  </ng-container>
+  
+
+  <ng-container *ngIf="this.profiletype=='Experts'">
+      <app-expert-registration></app-expert-registration>
+    </ng-container>
+  
+    <ng-container *ngIf="this.profiletype=='Industry'">
+      <app-industry-registration></app-industry-registration>
+    </ng-container>
+  
+    <ng-container *ngIf="this.profiletype=='Universities'">
+        <app-university-registration></app-university-registration>
+      </ng-container>
+    
+</div>
+</div>

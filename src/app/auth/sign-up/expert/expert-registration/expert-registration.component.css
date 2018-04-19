@@ -1,0 +1,245 @@
+
+.popitems {
+	display: grid;
+	
+    grid-template-columns: 1fr 1fr;
+    
+	grid-gap: 10px;
+  	background-color: #ffffff;
+      padding: 10px;
+      max-width: 80%;
+     
+	  column-width: 200px;
+	  width: 80%;
+ 
+  margin: 0 auto;
+     
+}
+
+.otpstatus{
+	display: grid;
+    grid-column: 1/-1;
+	justify-items: center;
+	
+	font-size: 1.8rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: orangered;
+}
+
+
+.responsestatus{
+	display: grid;
+    grid-column: 1/-1;
+	justify-items: center;
+	
+	font-size: 1.8rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: orangered;
+}
+
+
+.acntinfo{
+    display: grid;
+    grid-column: 1/-1;
+	justify-items: center;
+	
+	font-size: 2.2rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #1c2550;
+}
+
+.popitems>div {
+    display: grid;
+	background-color: rgba(255, 255, 255, 0.8);
+	text-align: left;
+	padding:10px 10px;
+    font-size: 1.2rem;
+    grid-column-gap: 80px;
+    
+
+    
+}
+.columns {
+    column-width: 200px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+
+  .generateotp-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #70bdd1;
+	border-radius: 5px;
+	width: 120px !important;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+	align-content: center;
+}
+
+
+.sign-up-field {
+	background-color: #70bdd1; 
+	width: 120px !important;
+	height: 40px;
+	border: 1px;
+	border: 0px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+	align-content: center;
+
+}
+
+.otpsec {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+
+}
+
+.otp, .votp{
+	display: grid;
+	width: 100%;
+}
+
+.otpgen{
+	display: grid;
+	width: 100%;
+}
+
+.getotp {
+	font-size: 1.2rem;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: left;
+	color: #828282;
+}
+
+.otpstyle{
+	font-size: 1.2rem;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: left;
+	color: #828282;
+}
+
+.otpstylered{
+	font-size: 1.2rem;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: left;
+	color: red;
+
+}
+
+.terms {
+	display: grid;
+	grid-column: 1/-1;
+	justify-items: center;
+}
+
+.terms1 {
+	display: block;
+	grid-template-columns: 1fr;
+	grid-column: 1/-1;
+	justify-items: center;
+	font-size: 1.4rem;
+	font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #828282;
+
+}
+
+.success{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	justify-items: center;
+}
+
+.success>div{
+	display: grid;
+	text-align: center;
+
+	font-size: 1.8rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+
+	color: #828282;
+} 
+
+
+.success-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #ff8a8a;
+	border-radius: 5px;
+	width: 120px !important;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+	align-content: center;
+}
+
+.success:nth-of-type(1) .successheading {
+	font-size: 2.2rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #f98e08;
+}

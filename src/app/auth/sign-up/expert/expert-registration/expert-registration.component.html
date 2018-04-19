@@ -1,0 +1,172 @@
+<ng-container *ngIf="this.registrationconfirm!='success'">
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+      <div class="popitems">
+        <div class="acntinfo">Account Information</div>
+
+      
+
+        <div class="popfirst">
+          <mat-form-field>
+            <input matInput placeholder="First Name" type="text" id="firstname" mat-maxlength="50" formControlName="firstname" required
+              name="firstname" class="browser-default">
+          </mat-form-field>
+        </div>
+        <div class="popsecond">
+          <mat-form-field>
+            <input matInput placeholder="Last Name" type="text" id="lastname" formControlName="lastname" required name="lastname" class="browser-default">
+          </mat-form-field>
+        </div>
+    
+
+        <div class="popfirst">
+            <mat-form-field>
+              <input matInput placeholder="Position" type="text" id="position" mat-maxlength="60" 
+              formControlName="position" 
+                name="position" class="browser-default">
+            </mat-form-field>
+          </div>
+          <div class="popsecond">
+              <mat-form-field>
+                  <mat-select placeholder="Select University Size" name="universitysize" 
+                  class="catstyle"
+                  formControlName="universitysize" #universitysize required>
+                    <mat-option *ngFor="let universitysize of universitysizes; " [value]="universitysize">
+                      {{ universitysize }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="signupForm.get('universitysize').hasError('required') && signupForm.get('universitysize').touched">
+                    Univesity Size is
+                  <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+                
+
+          </div>
+
+          <div>
+              <mat-form-field>
+                <input matInput placeholder="Email ID" type="email" id="emailid" 
+                formControlName="emailid" required name="emailid" class="browser-default">
+              </mat-form-field>
+            </div>
+        
+            <div>
+              <mat-form-field>
+                <input matInput placeholder="Mobile" type="phone" id="mobile" 
+                (focusout) = validatemobile();
+                formControlName="mobile"  name="mobile" class="browser-default">
+              </mat-form-field>
+            </div>
+        
+            
+
+          <div class="popfirst">
+              <mat-form-field>
+                  <mat-select placeholder="Country" name="country" 
+                  class="catstyle"
+                  formControlName="country" #country required>
+                    <mat-option *ngFor="let country of countries; " [value]="country">
+                      {{ country }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="signupForm.get('country').hasError('required') && signupForm.get('country').touched">
+                    Country is
+                  <strong>Required</strong>
+                </mat-error>
+            </mat-form-field>
+                
+
+          </div>
+          <div class="popsecond">
+              <mat-form-field>
+                <input matInput placeholder="City" type="text" id="city" formControlName="city" required name="city" class="browser-default">
+              </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                  <input matInput placeholder="Zip / Postal Code" type="email" id="zip" 
+                  formControlName="zip" required name="zip" class="browser-default">
+                </mat-form-field>
+              </div>
+    
+        <div class="acntinfo">User Authentication</div>
+    
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Password" type="password" id="password" formControlName="password" required name="password"
+              class="browser-default">
+          </mat-form-field>
+        </div>
+    
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" type="password" id="confirmPassword" formControlName="confirmPassword" required
+              name="confirmPassword" class="browser-default">
+          </mat-form-field>
+        </div>
+    
+        <div class="alert alert-danger" *ngIf="signupForm.controls.confirmPassword.errors?.MatchPassword && signupForm.controls.confirmPassword.touched">Password not match</div>
+    
+        <!-- <app-seeker-registration></app-seeker-registration> -->
+    
+        <div class="terms1">
+          <p>By Clicking Submit you agree to our  <a> <span style="display: inline; cursor: pointer;" (click)="policyDialog()">Privacy Policy</span></a> and <a> <span style="display: inline; cursor: pointer;" (click)="policyDialog()">Cookie Policy</span></a> </p>
+        
+        </div>
+    
+      
+    
+         <div class="terms">
+          
+    
+              <button class="btn waves-effect waves-light  cyan accent-4
+              btnstyle
+              sign-up-field button" [disabled]=!signupForm.valid type="submit"
+                name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+    
+        </div>
+      
+        <div class="terms1">
+          <span class="responsestatus">
+            {{this.responsemsg}}
+          </span>
+        </div>
+        
+    
+    
+    
+        <!-- {{signupForm.value | json}} -->
+    
+      </div>
+    </form>
+    
+    </ng-container> 
+    
+    <ng-container *ngIf="this.registrationconfirm=='success'">
+      <div class="success">
+       <div class="successheading">
+          <p>Congratulations!</p>
+       </div>
+       <div class="successheading1">
+          You are registered Successfully.
+       </div>
+       <div class="successheading2">
+          Kindly check your Email for Activation Link.
+       </div>
+    
+       <div class="successheading4">
+          <button class="success-btn" type="button" (click)="successExit()" name="action">OK
+            </button>
+       </div>
+      </div>
+      </ng-container>
+    
+    <!-- "OTP you have entered is incorrect. Please enter the  correct OTP" -->
+    
+    <!-- OTP will be sent to your registered mobile number as the label.
+    
+    -Didn't receive OTP? as label.
+    7.Resend OTP as a hyperlink. -->
