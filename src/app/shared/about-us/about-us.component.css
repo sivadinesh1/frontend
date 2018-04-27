@@ -1,41 +1,31 @@
-.wrapper {
-	background-color: transparent;
-	color: #444;
-	top:200px;
-}
 
-.wrapper {
-	display: grid;
-	grid-gap: 1em;
-	grid-template-areas:
-	"header"
-    "aboutus"
-	"footer"
-}
+.emptydiv{
+	height: 100px;
+} 
 
 
-@media only screen and (min-width: 500px)  {
-	.wrapper {
-		grid-template-columns: 1fr;
-		grid-template-areas:
-		"header"
-	
-		"aboutus"
-		"footer";
-	}
-}
+
+
 
 @media only screen and (min-width: 600px)   {
 	.wrapper {
+		display: grid;
+		grid-gap: 1em; 
+		background-color: transparent;
+		color: #444;
 		grid-gap: 20px;
 		grid-template-columns: 1fr;
 		grid-template-areas:
-		"header"
 		"aboutus"
-		"footer";
-		max-width: 100%;
+		"vision"
+		"ourteam";
+		min-width: 100%;
 	}
 }
+
+
+
+/** about - us **/
 
 .aboutus {
 	display: grid;
@@ -43,51 +33,151 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 3fr;
 	grid-gap: 10px;
-	/* background-color: #f8f7fc; */
-	  
-	  /* padding: 10px; */
-	  max-width: 100%;
-	  min-height: 300px;
 
-	  align-content: center;
-	
-}
-
-.aboutus >div {
-	display: grid;
 	max-width: 100%;
-	
-	
-}
+	min-height: 300px;
 
-
-.rowone {
-	display: grid;
-	font-weight: 200;
-	
-	font-size: 2.2rem !important;
-background-color: #ffffff;
-	justify-content: center;
-
-	
-}
-
-.rowtwo {
-	display: grid;
-	font-weight: 100;
-	font-family: OpenSans;
-	font-size: 2rem !important;
-	
-	justify-content: center;
 	align-content: center;
+	background: #f6f6f6;
+}
+
+
+.about-us::before {
+	content:'About Us';
+	display: block;
+	border: 0px solid red;
+	font-size: 2em;
+	text-align: center;
+	color: var(--pumpkin-orange);
+	padding:  0.6em;
+}
+
+.about-us::first-line img {
+	width: 100%;
+	height: auto;
+	max-height: 400px;
+	background-size: cover;
+	-moz-background-size: cover;  
+	background-position: center;  
+}
+
+.about-us :nth-child(2),
+.about-us :nth-child(4)  {
+	/* background: red; */
+	display: block;
+	border: 0px solid red;
+	font-size: 2em;
+	text-align: center;
+	color: var(--pumpkin-orange);
+	padding:  0.6em;
+	margin: 0em;
+	background-color: #f6f6f6;
+}
+
+.about-us :nth-child(3),
+.about-us p:nth-child(5) 
+{
+	background: #f6f6f6;
+	display: block;
+	border: 0px solid red;
+	font-size: 1.4em;
+	text-align: center;
+	color: #404040;
+	padding:  0em 2em;
+	margin: 0em;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.67;
+	letter-spacing: 0.4px;
+	width: 100%;
+	margin: auto;
+}
+
+
+/** Vision & Mission **/
+
+.vision {
+	display: grid;
+	grid-area: vision;
+	grid-template-columns: 1fr 2fr;
+
+	grid-gap: 10px;
+	width: 80%;
+	margin: auto;
+border: 0px solid yellow;
+	 
+	  align-content: center;
+	 
+	  justify-content: center;
+	  
+	 padding-bottom: 50px;
 	
+}
+
+.vision >div {
+	display: grid;
+}
+
+
+.vision div:nth-child(1) {
+	display: grid;
+	border: 0px solid blue;
+	align-content: center;
+	justify-content: center;
+}
+
+.vision div:nth-child(2) {
+	display: grid;
+	
+	border: 0px solid red;
+	
+
+}
+
+
+.vision-mission p:nth-child(1), p:nth-child(4) {
+	
+	display: grid;
+	border: 0px solid red;
+	font-size: 2em;
+	text-align: center;
+	color: 1c2550;
+	padding:  0.3em;
+	margin: 0em;
+	height: auto;
+}
+
+.mission{
+	display: grid;
+	border: 0px solid red;
+	font-size: 2em;
+	text-align: center;
+	color: 1c2550;
+	padding:  0.3em;
+	margin: 0em;
+	height: auto;
+
+}
+
+.vision-mission{
+	font-size: 1.4em;
+	font-family: OpenSans;
+	
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.67;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #404040;
 }
 
 .rowthree{
 	display: grid;
 	background-size: cover;
-	-moz-background-size: cover;  /* Firefox 3.6 */
-	background-position: center;  /* Internet Explorer 7/8 */
+	-moz-background-size: cover;  
+	background-position: center;  
 	width: 100%;
 	height: auto;
 	overflow: hidden;
@@ -99,222 +189,13 @@ background-color: #ffffff;
 	height: auto;
 	max-height: 400px;
 	background-size: cover;
-	-moz-background-size: cover;  /* Firefox 3.6 */
-	background-position: center;  /* Internet Explorer 7/8 */
+	-moz-background-size: cover;  
+	background-position: center;  
   }
 
-  .rowfour {
-	display: grid;
-	font-weight: 100;
-	font-family: OpenSans;
-	font-size: 2rem !important;
-	background-color: #f6f6f6;
-	justify-content: center;
-	align-content: center;
-	padding: 20px;
-}
-
-.rowfive {
-	display: grid;
-	font-weight: 100;
-	font-family: OpenSans;
-	font-size: 2rem !important;
-	grid-template-columns: 1fr 1fr 1fr;
-	
-	justify-content: space-around;
-	align-content: center;
-	
-	
-	grid-gap: 10px;
-	border: 0px solid orangered;
-}
 
 
-.rowfive-item1 {
-	display: grid;
-grid-column: 1/-1;
-border: 0px solid green;
-text-align: center;
-color: #1c2550;
-padding: 40px;
-
-font-family: "Open Sans";
-
-font-size: 2.7rem !important;
-font-weight: normal;
-font-style: normal;
-font-stretch: normal;
-line-height: normal;
-letter-spacing: normal;
-text-align: center;
-
-}
-
-
-
-.rowsix-item2 {
-	display: grid;
-text-align: center;
-color: #828282;
-padding: 20px;
-
-font-family: "Open Sans";
-
-font-size: 1.8rem !important;
-font-weight: normal;
-font-style: normal;
-font-stretch: normal;
-line-height: normal;
-letter-spacing: normal;
-text-align: left;
-
-}
-
-
-.rowfive-item2 {
-	display: grid;
-
-border: 2px solid blue;
-}
-
-.rowfive-item3 {
-	display: grid;
-
-	border: 2px solid yellow;
-}
-
-
-.rowsix {
-	display: grid;
-	font-weight: 100;
-	font-family: "Open Sans";
-	font-size: 2rem !important;
-	grid-template-columns: 1fr 2fr;
-	
-	justify-content: center;
-	align-content: center;
-	width: 80%;
-	margin: auto;
-	
-}
-
-
-.rowsix-item1 {
-	display: grid;
-	justify-content: center;
-	align-content: center;
-
-}
-
-
-
-
-
-.rowone-item1{
-	display: grid;
-	align-content: center;
-	text-align: center;
-	align-content: center;
-	
-	font-family: "Open Sans";
-
-	font-size: 2.7rem !important;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: center;
-	color: #f98e08;
-}
-
-.rowone-item2{
-	display: grid;
-	align-content: center;
-	text-align: center;
-
-	font-family: "Open Sans";
-
-	
-
-	width: 80%;
-	margin: auto;
-	padding: 20px 0px;
-font-size: 1.8rem;
-	font-weight: 100;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: 0.5px;
-  text-align: center;
-  color: #828282;
-}
-
-.rowfour-item1{
-	display: grid;
-	align-content: center;
-	text-align: center;
-	width: 80%;
-	margin: auto;
-	padding: 40px;
-	font-family: "Open Sans";
-
-	font-size: 2.7rem !important;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: center;
-	color: #f98e08;
-}
-
-.rowfour-item2{
-	display: grid;
-	align-content: center;
-	text-align: center;
-	width: 80%;
-	margin: auto;
-	font-size: 1.8rem !important;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: center;
-	color: #828282;
-}
-
-.rowfour-item3{
-	display: grid;
-	align-content: center;
-	text-align: center;
-	width: 80%;
-	margin: auto;
-	font-size: 1.8rem !important;
-	font-weight: normal;
-	font-style: normal;
-	font-stretch: normal;
-	line-height: normal;
-	letter-spacing: normal;
-	text-align: center;
-	color: #828282;
-}
-
-
-.rowsix {
-	display: grid;
-	font-weight: 200;
-	font-family: "Open Sans";
-	font-size: 2.2rem !important;
-background-color: #ffffff;
-	justify-content: center;
-	align-content: center;
-	
-}
-
-
-.rowseven {
+  .rowseven {
 	display: grid;
 	font-weight: 200;
 	font-family: "Open Sans";
@@ -416,6 +297,3 @@ background-color: #f6f6f6;
 
 }
 
-.emptydiv{
-	height: 100px;
-}

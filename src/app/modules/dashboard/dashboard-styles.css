@@ -1,0 +1,389 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    
+    padding: 100px;
+    background-color: #fafafa;
+    
+}
+
+
+
+.db-left-menu {
+    display: grid;
+    grid-template-rows: auto;
+    
+    padding: 20px;
+    
+    text-align: center;
+ 
+    background-color: white;
+    border: 0px solid red;
+}
+.editprofile{
+    padding: 8px;
+
+    font-family: "Open Sans";
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #828282;
+
+}
+.db-head-banner{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    
+    padding: 10px;
+    justify-items: left;
+    border: 0px solid yellow;
+    background-color: #5db7e9;
+} 
+.profname{
+    display: grid;
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+  
+    height: 60px;
+
+    font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
+  word-wrap: break-word;
+ 
+
+}
+
+.db-main-content{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+    
+    padding: 20px;
+    
+  
+ 
+    background-color: white;
+    border: 0px solid red;
+    height: auto;
+} 
+
+
+
+
+.db-leftmenu-mycourse {
+    display: grid;
+    height: 45px;
+    background-color: #ffffff;
+    justify-content: left;
+    align-content: center;
+    border-left: 10px solid #ffffff;
+    padding-left: 10px;
+    font-size: 1.4rem;
+    color: #000000;
+
+}
+
+.db-leftmenu-dashboard {
+    display: grid;
+    height: 45px;
+    background-color: #e7f9fc;
+
+    justify-content: left;
+    align-content: center;
+    border-left: 10px solid steelblue;
+    padding-left: 10px;
+    font-size: 1.4rem;
+    color: #000000;
+}
+
+.db-mycourses-summary{
+    display: grid;
+    background-color: #38a5b9;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 113px;
+    justify-content: center;
+    align-content: center;
+ 
+    
+}
+
+.db-mycourses-enrolled {
+    display: grid;
+    background-color: #38a5b9;
+    font-size: 1em;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.db-mycourses-completed {
+    display: grid;
+    background-color: #3fb1c5;  
+}
+
+
+
+.db-mycourses-badging {
+    display: grid;
+    background-color: #38a5b9;
+
+}
+
+.db-notification {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 10px;
+
+}
+
+.db-notification-head {
+    display: grid;
+    justify-self: left;
+    font-size: 2em;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #828282;
+    border: 0px solid red;
+
+}
+
+.db-mycourses-enrolled div:nth-child(1),
+.db-mycourses-completed div:nth-child(1),
+.db-mycourses-badging div:nth-child(1)
+{
+    color: #ffffff;
+    font-family: "Open Sans";
+    font-size: 4em;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: #ffffff;
+    align-self: center;
+}
+
+.db-mycourses-enrolled div:nth-child(2),
+.db-mycourses-completed div:nth-child(2),
+.db-mycourses-badging div:nth-child(2)
+
+{
+    font-size: 1.4em;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.9px;
+    text-align: center;
+    color: #ffffff;
+    align-self: center;
+}
+
+.notif-rows{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    padding: 5px;
+    align-items: center;
+}
+
+.notif-count{
+    
+    font-family: "Open Sans";
+    font-size: 2em;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #38a5b9;
+}
+
+.notif-desc {
+    font-family: "Open Sans";
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #828282;
+}
+
+.db-chart{
+    display: grid;
+    grid-column: 1/2;
+    
+}
+
+.db-chart-head {
+    display: grid;
+    grid-column: 1/4;
+    text-align: left;
+    font-size: 2em;
+    padding: 10px;
+}
+
+.knowledge-map {
+    display: grid;
+    grid-column: 1/2;
+    grid-template-columns: 1fr;
+    
+    
+    border: 0px solid red;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.knowledge-head {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #38a5b9;
+    padding: 10px;
+    font-size: 2em;
+}
+
+.knowledge-desc {
+    font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+    color: #4b5766;
+    padding: 10px;
+    font-size: 1.4em;
+
+}
+
+.knowledge-start {
+    display: grid;
+    font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+    color: #4b5766;
+    padding: 10px;
+    font-size: 1.4em;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.start-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #f98e08;
+	border-radius: 5px;
+	width: 250px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.banner-image {
+    display: grid;
+    grid-row: 1/5;
+    padding: 20px;
+    align-content: center;
+
+}
+
+.banner-topic {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr;
+    grid-column: 2;
+
+    font-size: 2em;
+    color: #fafafa;
+    font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+
+}
+
+.banner-desc {
+    display: grid;
+
+    font-size: 1.2em;
+    color: #fafafa;
+    font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+
+}
+
+.banner-timevenue {
+    display: grid;
+    font-size: 1.2em;
+    color: #1c2550;
+    font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+
+}
+
+.view-details-btn {
+	display: grid;
+	
+	text-align: center;
+	background-color: #ffffff;
+	border-radius: 5px;
+	width: 250px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #5db7e9;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.venue-style:before {
+    content: url('/assets/images/calendar.png');
+    
+    
+   
+ }

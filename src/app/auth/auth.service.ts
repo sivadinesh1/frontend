@@ -121,7 +121,15 @@ export class AuthService {
     recoverauth(recoverauth:string) {
         return this._httpclient.post(this.backendUrl + '/api/recoverpass/', recoverauth);
     }
+    
+    recoverPassforProfile(email:string, profile: string) {
+        return this._httpclient.post(this.backendUrl + '/api/recoverpass/' + email + '/' + profile, {observe: 'response'} );
+    }
 
+
+   
+    
+      
 
     logout() {
         let url = this.backendUrl + "/logout";

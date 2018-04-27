@@ -1,28 +1,111 @@
-<div class="dashwrapper">
+<div class="wrapper">
 
-    <div class="dwitem1">
+    <div class="db-left-menu">
       <div class="profname">
         {{this.user.firstName}}
       </div>
       <div class="profilepic">
         <img src="/assets/images/profile-pic.jpg">
       </div>
+      <div class="editprofile">
+        Edit Profile
+      </div>
         
     </div>
-    <div class="dwitem2">
+    <div class="db-head-banner">
   
-      2
   
-    </div>
-    <div class="dwitem3">
   
-      <div class="dashsidemenu">
+        <ng-container *ngFor= "let banner of banners">
+          <div class="banner-image">
+            <img src={{banner.img}}>
+          </div>
+          <div class="banner-topic">
+            {{banner.topic}}
+          </div>
+          <div class="banner-desc">
+              {{banner.desc}}
+          </div>
+          <div class="banner-timevenue">
+              <span class="venue-style">
+              &nbsp;{{banner.timevenue}}
+              </span>
+          </div>
+          <div class="banner-details">
+              <span class="view-details-btn handcursor" >View Details</span>
+          </div>
+        </ng-container>
+      </div>
+  
+    
+    <div class="db-leftmenu">
+  
+      <div class="db-leftmenu-dashboard">
         Dashboard
       </div>
-      <div class="mycoursessidemenu">
+      <div class="db-leftmenu-mycourse">
         My Courses
       </div>
     </div>
-    <div class="dwitem4">4</div>
-    
+    <div class="db-main-content">
+  
+      <div class="db-mycourses-summary">
+  
+        <div class="db-mycourses-enrolled">
+          <div> {{this.coursesenrolled}}</div>
+          <div>Courses Enrolled</div>
+        </div>
+  
+        <div class="db-mycourses-completed">
+            <div> {{this.coursescompleted}}</div>
+            <div>Courses Completed</div>  
+        </div>
+  
+        <div class="db-mycourses-badging">
+            <div> {{this.digitalbadging}}</div>
+            <div>Digital Badging</div>
+        </div>
+  
+      </div>
+      <div class="db-notification">
+        <div class="db-notification-head">
+            Notifications
+        </div>
+       
+  <div class="notif-rows" *ngFor="let notification of notifications; " >
+    <div class="notif-count">
+      {{notification.notifcount}}
+    </div>
+    <div class="notif-desc">
+        {{notification.notifdesc}}
+    </div>
   </div>
+  
+  
+      </div>
+  <div class="db-chart-head">
+    Course Type Status  
+  </div>
+    
+      <div [hidden]="!chart" class="db-chart">
+      <!-- <div *ngIf="chart" class="db-chart"> -->
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+  
+      <div class="knowledge-map">
+        <div class="knowledge-head">
+            Knowledge Map
+        </div>
+        <div class="knowledge-desc">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. consequatur quos quam unde quia pariatur fugit dolorum maxime asperiores architecto, magni nostrum. Magnam rem repellat voluptatum esse modi ipsum?
+          </div>
+          <div class="knowledge-start">
+              <span class="start-btn handcursor" >Start</span>
+          </div> 
+  
+      </div>
+  
+    </div>
+  
+  </div>
+  

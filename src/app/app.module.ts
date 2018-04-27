@@ -18,8 +18,8 @@ import { SeekerDashboardComponent } from './modules/dashboard/seeker-dashboard/s
 import { ProviderDashboardComponent } from './modules/dashboard/provider-dashboard/provider-dashboard.component';
 import { UniversityDashboardComponent } from './modules/dashboard/university-dashboard/university-dashboard.component';
 import { ExpertDashboardComponent } from './modules/dashboard/expert-dashboard/expert-dashboard.component';
-import { SeekerProfileComponent } from './modules/profiles/seeker-profile/seeker-profile.component';
-import { ProviderProfileComponent } from './modules/profiles/provider-profile/provider-profile.component';
+
+
 import { TestComponent } from './test/test.component';
 import { Test1Component } from './test1/test1.component';
 import { UniversityComponent } from './modules/whyskillmatic/university/university.component';
@@ -27,11 +27,12 @@ import { ExpertsComponent } from './modules/whyskillmatic/experts/experts.compon
 import { SeekersComponent } from './modules/whyskillmatic/seekers/seekers.component';
 import { ProvidersComponent } from './modules/whyskillmatic/providers/providers.component';
 import { IndustryComponent } from './modules/whyskillmatic/industry/industry.component';
-import { SeekerDashboardResolver } from './services/seeker-dashboard-resolver.service';
+
 import { DashboardApiService } from './services/dashboard-api.service';
 
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
+import { DashboardResolver } from './services/dashboard-resolver.service';
 
 
 @NgModule({
@@ -43,8 +44,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
     ProviderDashboardComponent,
     UniversityDashboardComponent,
     ExpertDashboardComponent,
-    SeekerProfileComponent,
-    ProviderProfileComponent,
+   
     TestComponent,
     Test1Component,
     UniversityComponent,
@@ -74,7 +74,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
     
 ],
   
-  providers: [  AuthService, DialogService, DashboardApiService, SeekerDashboardResolver, CanDeactivateGuard,{provide: MAT_DATE_LOCALE, useValue: 'en-IN'}, CommonApiService],
+  providers: [  AuthService, DialogService, DashboardApiService, DashboardResolver, CanDeactivateGuard,{provide: MAT_DATE_LOCALE, useValue: 'en-IN'}, CommonApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,424 @@
-<p>
-  seeker-profile works!
-</p>
+<div class="wrapper">
+
+  <div class="db-left-menu">
+    <div class="profname">
+      {{this.user.firstName}}
+    </div>
+    <div class="profilepic">
+      <img src="{{this.user.profileimgurl}}" width="140" height="140">
+    </div>
+    <div class="editprofile">
+      <!-- <input type="file" accept="image/*" (change)="handleInputChange($event)" /> -->
+    </div>
+    <div class="db-leftmenu">
+        <div class="db-leftmenu-dashboard">
+          Dashboard 
+        </div>
+        <div class="db-leftmenu-mycourse">
+          My Courses
+        </div>
+      </div>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" [formGroup]="editProfileForm" >
+  <div class="db-head-banner">
+      <ng-container *ngIf="page1">
+        <div class="page-1">
+      
+    <div>Account Information</div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="First Name" type="text" id="firstname" mat-maxlength="50" 
+         formControlName="firstname" 
+          name="firstname" class="browser-default">
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field>
+      <input matInput placeholder="Last Name" type="text" id="lastname" 
+        formControlName="lastname"  name="lastname" class="browser-default">
+      </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+          <input matInput placeholder="Email" type="text" id="email" mat-maxlength="50" 
+           formControlName="email" 
+            name="email" class="browser-default">
+        </mat-form-field>
+      </div>
+      
+      <div>
+        <mat-form-field>
+        <input matInput placeholder="Phone #" type="text" id="phno" 
+          formControlName="phno"  name="phno" class="browser-default">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input matInput formControlName="dob" [matDatepicker]="picker0" 
+          readonly
+          placeholder="Choose a date" type="text" class="browser-default">
+          <mat-datepicker-toggle matSuffix [for]="picker0"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker0></mat-datepicker>
+        </mat-form-field> 
+      </div>
+
+
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Gender" name="sex" formControlName="sex" #sex >
+      <mat-option *ngFor="let gender of genders; " [value]="gender">
+        {{ gender }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Nationality" name="nationality" formControlName="nationality" #nationality >
+      <mat-option *ngFor="let nationality of nationalities; " [value]="nationality">
+        {{ nationality }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Citizenship" name="citizenship" formControlName="citizenship" #citizenship >
+      <mat-option *ngFor="let citizenship of citizenships; " [value]="citizenship">
+        {{ citizenship }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+  <div>
+    <mat-form-field>
+    <input matInput placeholder="City" type="text" id="city" 
+      formControlName="city"  name="city" class="browser-default">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+    <input matInput placeholder="State" type="text" id="state" 
+      formControlName="state"  name="state" class="browser-default">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+    <input matInput placeholder="Aadhar" type="text" id="aadhar" 
+      formControlName="aadhar"  name="aadhar" class="browser-default">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+    <input matInput placeholder="Pan" type="text" id="pan" 
+      formControlName="pan"  name="pan" class="browser-default">
+    </mat-form-field>
+  </div>
+
+      <div class="links">
+        <div>Links</div>
+
+       
+        
+        <div class="searchhome">
+          <input class="searchhomebox  browser-default" type="text" 
+          formControlName="website"
+          name="website" placeholder="Website(http(s)://..)">
+          <input type="submit" value="Website(http(s)://.." class="searchButton1">
+        </div>
+          
+        <div class="searchhome">
+          <input class="searchhomebox  browser-default" type="text" 
+          formControlName="smgoogle"
+          name="smgoogle" placeholder="Google + link">
+          <input type="submit" value="http://plus.google.com" class="searchButton1">
+        </div>
+
+        <div class="searchhome">
+          <input class="searchhomebox  browser-default" type="text" 
+          formControlName="smtwitter"
+          name="smtwitter" placeholder="Twitter Profile">
+          <input type="submit" value="http://twitter.com" class="searchButton1">
+        </div>
+
+        <div class="searchhome">
+          <input class="searchhomebox  browser-default" type="text" 
+          formControlName="smfacebook"
+          name="smfacebook" placeholder="Facebook Profile">
+          <input type="submit" value="http://facebook.com" class="searchButton1">
+        </div>
+          
+        <div class="searchhome">
+          <input class="searchhomebox  browser-default" type="text" 
+          formControlName="smlinkedin"
+          name="smlinkedin" placeholder="Linkedin Profile">
+          <input type="submit" value="http://linkedin.com" class="searchButton1">
+        </div> 
+        <div class="searchhome">
+            <input class="searchhomebox  browser-default" type="text" 
+            formControlName="smyoutube"
+            name="smyoutube" placeholder="Youtube Profile">
+            <input type="submit" value="http://youtube.com" class="searchButton1">
+          </div>    
+    </div>
+    <div class="submit-row">
+
+      <button class="btn waves-effect waves-light  cyan accent-4
+        btnstyle
+        sign-up-field button" [disabled]=!editProfileForm.valid type="submit"
+        name="action">Update & Save
+    
+      </button>
+
+    </div>
+  </div>
+</ng-container>
+          <!-- {{this.editProfileForm.value | json}} -->
+
+<ng-container *ngIf="page2">
+<div class="page-2">
+    <div>Educational Information</div>
+
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Secondary Education" name="secondaryeducation" formControlName="secondaryeducation" #secondaryeducation >
+          <mat-option *ngFor="let secondaryeducation of secondaryeducations; " [value]="secondaryeducation">
+            {{ secondaryeducation }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Secondary %" type="text" id="secedupercent" mat-maxlength="10" 
+         formControlName="secedupercent" 
+          name="secedupercent" class="browser-default">
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="secedupassoutyr" [matDatepicker]="picker11" 
+        readonly mode="YEAR"
+        placeholder="Passout Year" type="text" class="browser-default">
+        <mat-datepicker-toggle matSuffix [for]="picker11"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker11></mat-datepicker>
+      </mat-form-field> 
+    </div>
+<div>&nbsp;</div>
+<!-- pre-university -->
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Pre University" name="puedu" formControlName="puedu" #puedu >
+          <mat-option *ngFor="let pu of pus; " [value]="pu">
+            {{ pu }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Pre Univ %" type="text" id="puedupercent" mat-maxlength="10" 
+         formControlName="puedupercent" 
+          name="puedupercent" class="browser-default">
+      </mat-form-field>
+    </div>
+
+
+    <div>
+
+        <mat-form-field>
+            <input matInput formControlName="puedupassoutyr" [matDatepicker]="picker1" 
+            readonly 
+            placeholder="Choose a date" type="text" class="browser-default">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #picker1></mat-datepicker>
+          </mat-form-field> 
+
+    
+    </div>
+
+
+    <div>&nbsp;</div>
+    <div class="subheadings"> Graduation</div>
+
+
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Under Graduation" name="ugedu" formControlName="ugedu" #ugedu >
+          <mat-option *ngFor="let ug of ugs; " [value]="ug">
+            {{ ug }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Speciality" name="ugedu" formControlName="ugspeciality" #ugspeciality >
+          <mat-option *ngFor="let ugspeciality of ugspecialities; " [value]="ugspeciality">
+            {{ ugspeciality }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="UG %" type="text" id="ugedupercent" mat-maxlength="10" 
+         formControlName="ugedupercent" 
+          name="ugedupercent" class="browser-default">
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field>
+        <input matInput formControlName="ugedupassoutyr" [matDatepicker]="picker2" 
+        readonly mode="YEAR"
+        placeholder="Passout Year" type="text" class="browser-default">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker2></mat-datepicker>
+      </mat-form-field> 
+    </div>
+
+    <div class="subheadings"> Post Graduation</div>
+
+
+    <div>
+        <mat-form-field>
+          <mat-select placeholder="Post Graduation" name="ugedu" formControlName="pgedu" #pgedu >
+            <mat-option *ngFor="let pg of pgs; " [value]="pg">
+              {{ pg }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+  
+      <div>
+        &nbsp;
+      </div>
+  
+  
+  
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="PG %" type="text" id="pgedupercent" mat-maxlength="10" 
+           formControlName="pgedupercent" 
+            name="pgedupercent" class="browser-default">
+        </mat-form-field>
+      </div>
+  
+  
+      <div>
+        <mat-form-field>
+          <input matInput formControlName="pgedupassoutyr" [matDatepicker]="picker3" 
+          readonly mode="YEAR"
+          placeholder="Passout Year" type="text" class="browser-default">
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker3></mat-datepicker>
+        </mat-form-field> 
+      </div>
+
+      <div class="resumes">
+          <input type="file" name="file" id="file" class="inputfile" 
+          accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" 
+            (change)="uploadResume($event)"
+            data-multiple-caption="{count} files selected" multiple />
+          <label for="file">Upload Resume</label>  {{this.selectedResumeFile}}
+      </div>
+      <!-- <div>
+      
+      </div> -->
+
+      <!-- <div class="resumes" id="resume">
+          <input type="file">Upload Resume
+        </div> -->
+
+      <div class="subheadings-center" > Professional Information</div>
+
+    
+
+      <div>
+          <mat-form-field>
+            <mat-select placeholder="Experiences" name="experience" formControlName="experience" #experience >
+              <mat-option *ngFor="let experience of experiences; " [value]="experience">
+                {{ experience }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div>
+            <mat-form-field>
+              <mat-select placeholder="Industry" name="industry" formControlName="industry" #industry >
+                <mat-option *ngFor="let industry of industries; " [value]="industry">
+                  {{ industry }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+          <div>
+              <mat-form-field>
+                <mat-select placeholder="Sub Industry" name="subindustry" formControlName="subindustry" #subindustry >
+                  <mat-option *ngFor="let subindustry of subindustries; " [value]="subindustry">
+                    {{ subindustry }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+
+
+    <div class="submit-row">
+
+      <button class="btn waves-effect waves-light  cyan accent-4
+        btnstyle
+        sign-up-field button" [disabled]=!editProfileForm.valid type="submit"
+        name="action">Update
+    
+      </button>
+
+    </div>
+
+</div>
+  
+
+
+</ng-container>
+
+
+ </div> 
+
+
+
+ 
+</form>
+
+
+
+</div>

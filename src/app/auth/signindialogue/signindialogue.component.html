@@ -55,7 +55,7 @@
 
     </div>
   <div class="forgotpass">
-    <a href="">Forgot Password?</a>
+    <a class="handcursor" (click)="forgotpassDialog()">Forgot Password?</a>
   </div>
 </div>
 
@@ -67,12 +67,12 @@
   </button>
  </div>
   
-    <div class="sign-up-error" *ngIf="responsemsg?.length > 0 ">{{responsemsg}}</div>
+    <div class="sign-up-error" *ngIf="this.responsemsg?.length > 0 ">{{this.responsemsg}}</div>
    
 
     <div class="row black-text ">
         <p class="black-text center-align">
-          Dont have an account? <a><span (click)="signupDialog()">Sign Up</span></a> 
+          Dont have an account? <a><span class="handcursor" (click)="signupDialog()">Sign Up</span></a> 
         </p>
       </div>
 

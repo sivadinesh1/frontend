@@ -120,3 +120,17 @@
 .emailsize{
 	font-size: 1.5rem;
 }
+
+.sign-up-error{
+	display: grid;
+	text-align: center;
+	font-size: 1.4rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+    text-align: center;
+    color: orangered;
+	
+}

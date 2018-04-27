@@ -24,11 +24,11 @@ export class HomeComponent implements OnInit {
 ];
   
 industrytrends: { pic: string,  desc: string }[] = [
-  { "pic":"/assets/images/article-1.png",  "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."   },
-  { "pic":"/assets/images/article-2.png",  "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."   },
-  { "pic":"/assets/images/article-3.png",  "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."   },
-  { "pic":"/assets/images/article-4.png",  "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."   },
-  { "pic":"/assets/images/article-5.png",  "desc":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam."   }
+  { "pic":"/assets/images/article-1.png",  "desc":"RETAIL"   },
+  { "pic":"/assets/images/article-2.png",  "desc":"IT"   },
+  { "pic":"/assets/images/article-3.png",  "desc":"FINANCE"   },
+  { "pic":"/assets/images/article-4.png",  "desc":"MANUFACTURING"   },
+  { "pic":"/assets/images/article-5.png",  "desc":"MEDICAL"   }
   
 ];
 

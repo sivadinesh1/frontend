@@ -1,0 +1,112 @@
+.btn1 {
+    cursor: pointer;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-appearance: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 1px 0px #fff;
+    color: rgb(224, 24, 24);
+   
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    text-align: center;
+    text-shadow: 1px 1px 0px #fff;
+   
+}
+
+.forgotpass-form {
+    -webkit-appearance: none;
+    width: 85%;
+    max-width: 450px;  
+}
+
+.authrecovery{
+    width: 280px;
+}
+
+.text-input{
+    width: 280px !important;
+}
+
+.headlabel{
+    font-family: OpenSans;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #1c2550;
+}
+
+.headlabel1{
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    padding-top: 10px;
+}
+
+.resetrow{
+    display: grid;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.reset-btn{
+	display: grid;
+	
+	text-align: center;
+	background-color: #ff8a8a;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+	border: 1px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	font-family: OpenSans;
+	font-weight: 100;
+	
+	font-size: 1.5rem;
+	align-content: center;
+}
+
+.emailsize{
+    font-size: 1.5rem;
+    width: 100%;
+}
+
+.msgformat{
+    color: orangered;
+    font-family: OpenSans;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+
+.catstyle{
+	font-family: "Open Sans";
+
+	font-size: 1.5rem !important;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+
+}

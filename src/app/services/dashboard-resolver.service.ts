@@ -6,7 +6,7 @@ import { CommonApiService } from './common-api.service';
 import { DashboardApiService } from './dashboard-api.service';
 
 @Injectable()
-export class SeekerDashboardResolver implements Resolve<any> {
+export class DashboardResolver implements Resolve<any> {
 
   assessmenttemp: any;
 

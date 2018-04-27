@@ -1,0 +1,287 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: minmax(250px, 310px) 1fr;
+    
+    padding: 100px;
+    background-color: #fafafa;
+    
+}
+
+
+
+.db-left-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    max-height: 500px;
+    padding: 20px;
+    
+    text-align: center;
+ justify-content: center;
+ align-content: center;
+    background-color: white;
+    border: 0px solid red;
+}
+
+
+.profilepic{
+    display: grid;
+    border: 0px solid yellow;
+    justify-content: center;
+ align-content: center;
+
+}
+
+.editprofile{
+    padding: 8px;
+
+    font-family: "Open Sans";
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #828282;
+    border-color: 0px solid red;
+
+}
+
+.db-head-banner{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 10px;
+    justify-items: center;
+    border: 0px solid yellow;
+    
+} 
+
+
+.page-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    text-align: left;
+
+}
+
+
+div.page-1 div:nth-child(1)
+{
+    grid-column: 1/-1;
+    text-align: left;
+    color: #1c2550;
+    font-size: 2em;
+ 
+}
+
+div.page-1 >*
+{
+    
+    text-align: left;
+    color:1c2550;
+    font-size: 1.4em;
+ 
+}
+
+.submit-row {
+    grid-column: 1/-1;
+    text-align: center;
+    justify-content: center;
+   
+}
+
+.profname{
+    display: grid;
+    text-align: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+  
+    height: 60px;
+
+  
+  color: #000000;
+  word-wrap: break-word;
+ 
+
+}
+
+
+
+.db-leftmenu-mycourse {
+    display: grid;
+    height: 45px;
+    background-color: #ffffff;
+    justify-content: left;
+    align-content: center;
+    border-left: 10px solid #ffffff;
+    padding-left: 10px;
+    font-size: 1.4rem;
+    color: #000000;
+
+}
+
+.db-leftmenu-dashboard {
+    display: grid;
+    height: 45px;
+    background-color: #e7f9fc;
+
+    justify-content: left;
+    align-content: center;
+    border-left: 10px solid steelblue;
+    padding-left: 10px;
+    /* font-size: 1.4rem; */
+    color: #000000;
+}
+
+.links {
+    display: grid;
+    grid-column: 1 / span 2; 
+    width: 75%;
+    
+}
+
+
+
+.links >div {
+    display: grid;
+    width: 100%;
+}
+
+div.links div:nth-child(1) {
+    text-align: center;
+    color:1c2550;
+    font-size: 2em;
+}
+
+
+.searchhomebox {
+	border: 0;
+	padding-left: 200px;
+	grid-column:1/4;
+	grid-row:1;
+	outline:none;
+	font-size: 1.6rem;
+	font-weight: 200;
+}
+
+.searchhome {
+	display: grid;
+  	grid-template-columns:1fr 4fr;
+ 	border-radius: 5px;
+	overflow: hidden;
+	width: 60%;
+    margin: auto;
+    padding: 15px;
+}
+
+.searchButton1 {
+    color: #38a5b9;
+	padding: 0.6em 1em;
+    width:195px;
+    text-align: center;
+	grid-column:1/2;
+	grid-row:1;
+	font-size: 1.4rem;
+    font-weight: 100;
+    border-radius: 4px;
+    border: solid 1px #38a5b9;
+}
+
+
+.page-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: auto;
+}
+
+.page-2 div:nth-child(1) {
+    display: grid;
+    grid-column: 1/-1;
+    justify-content: center;
+    font-size: 2em;
+    
+}
+
+
+
+div.page-2 >*
+{
+    
+    text-align: left;
+    color:1c2550;
+    font-size: 1.4em;
+ 
+}
+
+.subheadings {
+    display: grid;
+    grid-column: 1/-1;
+    justify-items: left;
+    font-size: 2em !important;
+}
+
+.subheadings-center {
+    display: grid;
+    grid-column: 1/-1;
+    justify-items: center;
+    font-size: 2em !important;
+}
+
+
+.resumes
+{
+    display: grid;
+    grid-column: 1/-1;
+    justify-items: left;
+    /* font-size: 2em !important; */
+    padding: 20px;
+
+}
+
+
+
+/********/
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+  
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+	pointer-events: none;
+}

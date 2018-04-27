@@ -19,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { SignupdialogueComponent } from './auth/signupdialogue/signupdialogue.component';
 import { VideodialogueComponent } from './auth/videodialogue/videodialogue.component';
-import { MatMenuModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatCheckbox, MatCheckboxModule } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule,
+  MatCheckbox, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { SeekerRegistrationComponent } from './auth/sign-up/seeker/seeker-registration/seeker-registration.component';
 import { ProviderRegistrationComponent } from './auth/sign-up/provider/provider-registration/provider-registration.component';
@@ -41,13 +42,19 @@ import { IndustryVideoComponent } from './modules/whyskillmatic/industry/industr
 import { UniversityVideoComponent } from './modules/whyskillmatic/university/university-video/university-video.component';
 import { SeekerVideoComponent } from './modules/whyskillmatic/seekers/seeker-video/seeker-video.component';
 import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provider-video/provider-video.component';
+import { ForgotPassDialogueComponent } from './auth/forgot-pass-dialogue/forgot-pass-dialogue.component';
+import { ConfirmPasswordResetComponent } from './auth/forgot-pass-dialogue/confirm-password-reset/confirm-password-reset.component';
+import { UniversityProfileComponent } from './modules/profiles/university-profile/university-profile.component';
+import { IndustryProfileComponent } from './modules/profiles/industry-profile/industry-profile.component';
+import { SeekerProfileComponent } from './modules/profiles/seeker-profile/seeker-profile.component';
+import { ProviderProfileComponent } from './modules/profiles/provider-profile/provider-profile.component';
 
 
 
 
 @NgModule({
   imports: [
-    
+
     CommonModule,
     NgPipesModule,
     RouterModule,
@@ -58,14 +65,16 @@ import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provid
     MatFormFieldModule,
     MatSelectModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     MatInputModule
-    
+
   ],
   declarations: [
     CheckBooleanPipe,
     NullToQuotePipe,
-    NullToZeroPipe,  
+    NullToZeroPipe,
     UrlidPipe,
     SafePipe,
     EscapeHtmlPipe,
@@ -77,15 +86,15 @@ import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provid
     AboutUsComponent,
     SeekerRegistrationComponent,
     ProviderRegistrationComponent,
-  
+
     PrivacypolicyComponent,
     CookiepolicyComponent,
     TermsComponent,
     CookiepolicydialogueComponent,
     DropdownmenuComponent,
-  
+
     UniversityRegistrationComponent,
-    
+
     IndustryRegistrationComponent,
     ExpertRegistrationComponent,
     IndustryDashboardComponent,
@@ -94,17 +103,19 @@ import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provid
     IndustryVideoComponent,
     UniversityVideoComponent,
     SeekerVideoComponent,
-    
-    
-    
-    
-    
+    ForgotPassDialogueComponent,
+    ConfirmPasswordResetComponent,
+    UniversityProfileComponent,
+    IndustryProfileComponent,
+    SeekerProfileComponent,
+    ProviderProfileComponent
+
   ],
   exports: [
     CommonModule,
     CheckBooleanPipe,
     NullToQuotePipe,
-    NullToZeroPipe,  
+    NullToZeroPipe,
     EscapeHtmlPipe,
     UrlidPipe,
     SafePipe,
@@ -116,11 +127,8 @@ import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provid
     MatButtonModule,
     MatSelectModule,
     MatCheckboxModule,
-    // SeekerRegistrationComponent,
-
-    // UniversityRegistrationComponent,
-    // ExpertRegistrationComponent,
-    // IndustryRegistrationComponent,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     MatInputModule,
     RouterModule
@@ -133,15 +141,17 @@ import { ProviderVideoComponent } from './modules/whyskillmatic/providers/provid
     ProviderVideoComponent,
     IndustryVideoComponent,
     UniversityVideoComponent,
-    CookiepolicydialogueComponent
+    CookiepolicydialogueComponent,
+    ForgotPassDialogueComponent,
+    ConfirmPasswordResetComponent
 ],
-  
+
 })
-export class SharedModule { 
-  static forRoot() : ModuleWithProviders {
+export class SharedModule {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
       providers: [UrlidPipe]
-    }
-  } 
+    };
+  }
 }
