@@ -56,7 +56,14 @@ export class SeekerRegistrationComponent implements OnInit {
     this.signupForm =  this._fb.group({
       'profile': new FormControl(null, Validators.required),
       'firstname': new FormControl(null, [Validators.required, Validators.maxLength(20)]),
-      'lastname': new FormControl(null, [Validators.required, Validators.maxLength(20)])
+      'lastname': new FormControl(null, [Validators.required, Validators.maxLength(20)]),
+      'emailid': new FormControl(null, [Validators.required, Validators.email]),
+      'mobile': new FormControl('', [ Validators.pattern(this.PHONE_REGEX)]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6),
+        Validators.maxLength(12), Validators.pattern(this.PASS_REGEX)]),
+      'confirmPassword': new FormControl(null),
+      'otp': new FormControl(null)
+
     }
   );
 

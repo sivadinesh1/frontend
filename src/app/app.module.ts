@@ -20,8 +20,7 @@ import { UniversityDashboardComponent } from './modules/dashboard/university-das
 import { ExpertDashboardComponent } from './modules/dashboard/expert-dashboard/expert-dashboard.component';
 
 
-import { TestComponent } from './test/test.component';
-import { Test1Component } from './test1/test1.component';
+
 import { UniversityComponent } from './modules/whyskillmatic/university/university.component';
 import { ExpertsComponent } from './modules/whyskillmatic/experts/experts.component';
 import { SeekersComponent } from './modules/whyskillmatic/seekers/seekers.component';
@@ -45,8 +44,7 @@ import { DashboardResolver } from './services/dashboard-resolver.service';
     UniversityDashboardComponent,
     ExpertDashboardComponent,
    
-    TestComponent,
-    Test1Component,
+   
     UniversityComponent,
     ExpertsComponent,
     SeekersComponent,

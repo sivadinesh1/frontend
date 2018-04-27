@@ -7,10 +7,10 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-import { TestComponent } from './test/test.component';
+
 import { SeekerDashboardComponent } from './modules/dashboard/seeker-dashboard/seeker-dashboard.component';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
-import { Test1Component } from './test1/test1.component';
+
 import { UniversityComponent } from './modules/whyskillmatic/university/university.component';
 import { SeekersComponent } from './modules/whyskillmatic/seekers/seekers.component';
 import { ProvidersComponent } from './modules/whyskillmatic/providers/providers.component';
@@ -31,8 +31,7 @@ const appRoutes: Routes = [
    { path: '', component: HomeComponent },
 
    { path: 'home', component: HomeComponent, data: { title: 'SkillmaTic - Home Page' } },
-   { path: 'test', component: TestComponent },
-   { path: 'test1', component: Test1Component },
+   
 
    { path: 'aboutus', component: AboutUsComponent, data: { title: 'SkillmaTic - Aboutus Page' } },
    { path: 'experts', component: ExpertsComponent, data: { title: 'SkillmaTic - Experts Page' } },
