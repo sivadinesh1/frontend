@@ -1,0 +1,17 @@
+.wrapper {
+    display: grid;
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    width: 80%;
+    justify-content: center;
+    min-height: 600px;
+    text-align: center;
+}
+
+.activation-status {
+    font-size: 3em;
+    color: blue;
+}
