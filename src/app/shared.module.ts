@@ -1,3 +1,4 @@
+import { UserActivationComponent } from './auth/user-activation/user-activation.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -20,7 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SignupdialogueComponent } from './auth/signupdialogue/signupdialogue.component';
 import { VideodialogueComponent } from './auth/videodialogue/videodialogue.component';
 import { MatMenuModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule,
-  MatCheckbox, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+  MatCheckbox, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatIconModule } from '@angular/material';
 import { AboutUsComponent } from './shared/about-us/about-us.component';
 import { SeekerRegistrationComponent } from './auth/sign-up/seeker/seeker-registration/seeker-registration.component';
 import { ProviderRegistrationComponent } from './auth/sign-up/provider/provider-registration/provider-registration.component';
@@ -48,6 +49,7 @@ import { UniversityProfileComponent } from './modules/profiles/university-profil
 import { IndustryProfileComponent } from './modules/profiles/industry-profile/industry-profile.component';
 import { SeekerProfileComponent } from './modules/profiles/seeker-profile/seeker-profile.component';
 import { ProviderProfileComponent } from './modules/profiles/provider-profile/provider-profile.component';
+import { LogoutDropdownComponent } from './shared/logout-dropdown/logout-dropdown.component';
 
 
 
@@ -67,7 +69,7 @@ import { ProviderProfileComponent } from './modules/profiles/provider-profile/pr
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
+    MatIconModule,
     MatInputModule
 
   ],
@@ -108,7 +110,9 @@ import { ProviderProfileComponent } from './modules/profiles/provider-profile/pr
     UniversityProfileComponent,
     IndustryProfileComponent,
     SeekerProfileComponent,
-    ProviderProfileComponent
+    ProviderProfileComponent,
+    UserActivationComponent,
+    LogoutDropdownComponent
 
   ],
   exports: [
@@ -129,7 +133,7 @@ import { ProviderProfileComponent } from './modules/profiles/provider-profile/pr
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
+    MatIconModule,
     MatInputModule,
     RouterModule
   ],

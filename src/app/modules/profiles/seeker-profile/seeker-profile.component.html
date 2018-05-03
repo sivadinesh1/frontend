@@ -8,21 +8,34 @@
       <img src="{{this.user.profileimgurl}}" width="140" height="140">
     </div>
     <div class="editprofile">
-      <input type="file" accept="image/*" (change)="handleInputChange($event)" />
+      <!-- <input type="file" accept="image/*" (change)="handleInputChange($event)" /> -->
+
+      <input type="file" name="file" id="file" class="inputfile" 
+      accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" 
+        (change)="handleInputChange($event)" />
+      <label for="file">Upload Picture</label>  {{this.selectedProfilePic}}
+
+      <div class="sign-up-error" *ngIf="picuploaderror?.length > 0 ">{{picuploaderror}}</div>
     </div>
     <div class="db-leftmenu">
-        <div class="db-leftmenu-dashboard">
+        <div class="db-leftmenu-dashboard" style="cursor: pointer" (click)="clickDashboardMenu($event)">
           Dashboard 
         </div>
-        <div class="db-leftmenu-mycourse">
+        <div class="db-leftmenu-mycourse" style="cursor: pointer">
           My Courses
+        </div>
+        <div class="db-leftmenu-changepassword" style="cursor: pointer" (click)="changePasswordMenu($event)">
+          Account
         </div>
       </div>
   </div>
+  
+ 
+ 
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="editProfileForm" >
   <div class="db-head-banner">
-      <ng-container *ngIf="page1">
+      <form (ngSubmit)="onSubmit()" [formGroup]="editProfileForm" >
+    <ng-container *ngIf="page1 && !page3">
         <div class="page-1">
       
     <div>Account Information</div>
@@ -188,7 +201,7 @@
 </ng-container>
           <!-- {{this.editProfileForm.value | json}} -->
 
-<ng-container *ngIf="page2">
+<ng-container *ngIf="page2 && !page3">
 <div class="page-2">
     <div>Educational Information</div>
 
@@ -341,19 +354,13 @@
       </div>
 
       <div class="resumes">
-          <input type="file" name="file" id="file" class="inputfile" 
+          <input type="file" name="file1" id="file1" class="inputfile" 
           accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" 
             (change)="uploadResume($event)"
             data-multiple-caption="{count} files selected" multiple />
-          <label for="file">Upload Resume</label>  {{this.selectedResumeFile}}
+          <label for="file1">Upload Resume</label>  {{this.selectedResumeFile}}
       </div>
-      <!-- <div>
-      
-      </div> -->
-
-      <!-- <div class="resumes" id="resume">
-          <input type="file">Upload Resume
-        </div> -->
+    
 
       <div class="subheadings-center" > Professional Information</div>
 
@@ -406,18 +413,63 @@
     </div>
 
 </div>
-  
+</ng-container>
 
+</form>
+
+
+<ng-container *ngIf="page3">
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="changePasswordForm">
+
+      <div class="wrap-change-password">
+
+        <div class="acntinfo">User Authentication</div>
+
+        <div>
+          <mat-form-field>
+              <input matInput 
+              id="password" formControlName="password" required name="password" class="browser-default"
+              placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            
+             <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+       
+          </mat-form-field>
+        </div>
+    <br>
+    <br>
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" type="password" id="confirmPassword" formControlName="confirmPassword" required
+              name="confirmPassword" class="browser-default">
+          </mat-form-field>
+          <div class="alert alert-danger" *ngIf="changePasswordForm.controls.confirmPassword.errors?.MatchPassword && changePasswordForm.controls.confirmPassword.touched">Password not match</div>
+        </div>
+    
+       
+    
+        <div class="submit-row">
+
+            <button class="btn waves-effect waves-light  cyan accent-4
+              btnstyle
+              sign-up-field button" [disabled]=!changePasswordForm.valid type="button" (click)=this.changePassword();
+              name="action">Update
+          
+            </button>
+      
+          </div>
+          <div class="sign-up-error" *ngIf="passwordstatusmsg?.length > 0 ">{{passwordstatusmsg}}</div>
+        
+
+      </div>
+    
+    </form>
 
 </ng-container>
 
 
  </div> 
-
-
-
- 
-</form>
 
 
 

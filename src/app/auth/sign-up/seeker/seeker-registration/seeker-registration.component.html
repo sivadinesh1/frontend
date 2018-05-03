@@ -26,15 +26,31 @@
         <input matInput placeholder="Mobile" type="phone" id="mobile" 
         (focusout) = validatemobile();
         formControlName="mobile"  name="mobile" class="browser-default">
+       
+        <mat-error  *ngIf="mobile.invalid && mobile.dirty">
+            Oraganization Size is
+        <strong>required</strong>
+      </mat-error>
+       
+        
       </mat-form-field>
     </div>
 
-    <div >
-        <button class="generateotp-btn" type="button" (click)="onSendOTP()" name="action">Generate OTP
+
+    <div *ngIf="otpsent == false">
+        <button class="generateotp-btn" type="button" 
+        [disabled]="!signupForm.controls.mobile.valid"
+        (click)="onSendOTP()" name="action">Generate OTP
         </button>
-        <span class="getotp">OTP will be send to your registered mobile number(hint):{{this.secretcode}}</span>
+        <span class="getotp">OTP will be sent to your registered mobile number.</span>
       </div>
-      <div >
+     
+          <div *ngIf="otpsent == true">
+             
+              <span class="getotp">OTP is Sent to the registered Mobile</span>
+            </div>
+            <div >
+
         <div class="otp">
           <mat-form-field>
             <input matInput placeholder="Enter OTP" type="otp" id="otp" formControlName="otp"  name="otp" class="browser-default">
@@ -56,8 +72,13 @@
 
     <div>
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" id="password" formControlName="password" required name="password"
-          class="browser-default">
+          <input matInput 
+          id="password" formControlName="password" required name="password" class="browser-default"
+          placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        
+         <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+   
       </mat-form-field>
     </div>
 
@@ -66,9 +87,10 @@
         <input matInput placeholder="Confirm Password" type="password" id="confirmPassword" formControlName="confirmPassword" required
           name="confirmPassword" class="browser-default">
       </mat-form-field>
+      <div class="alert alert-danger" *ngIf="signupForm.controls.confirmPassword.errors?.MatchPassword && signupForm.controls.confirmPassword.touched">Password not match</div>
     </div>
 
-    <div class="alert alert-danger" *ngIf="signupForm.controls.confirmPassword.errors?.MatchPassword && signupForm.controls.confirmPassword.touched">Password not match</div>
+   
 
     <!-- <app-seeker-registration></app-seeker-registration> -->
 

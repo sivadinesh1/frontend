@@ -1,7 +1,5 @@
 
-    <div class="{{stickyheader ? 'sticky' : 'header' }}" id="myHeader" >
-  
-  
+<div class="sticky" id="myHeader">
 
 <div class="logo">
   <div class="logo1" >
@@ -14,56 +12,73 @@
         <img src="/assets/images/skillma-tic-black.svg">
       </a>
     </div>
- 
-   
 </div>
-
 
 <div class="catitem"> 
     <app-dropdownmenu></app-dropdownmenu>
 </div>
 
-
-
-
-    
-    <div class="searcitem">
-      
-      <form>
-        <div class="searchContainer browser-default">
-          <input class="searchBox browser-default" type="search" name="search" placeholder="Search Courses / Hot Topics / Curriculum">
-          <i class="fa fa-search fa-2x searchIcon"></i>
-        </div>
-      </form>
-
+<div class="searcitem">
+ 
+  <form>
+    <div class="searchContainer browser-default">
+      <input class="searchBox browser-default" type="search" name="search" placeholder="Search Courses / Hot Topics / Curriculum">
+      <i class="fa fa-search fa-2x searchIcon"></i>
     </div>
+  </form>
+
+</div>
    
-    <div class="signin" >&nbsp;
-      
-      
-        
-
-    </div>
+<div class="signin" >&nbsp;
+</div>
     
-    <div class="signup" >
-        <div class="signin-btn" (click)="signinDialog()" style="cursor: pointer;"  *ngIf="(!isLoggedIn )">
-            Sign In
-        </div>
-      <div class="signup-btn" (click)="signupDialog()" style="cursor: pointer;"  *ngIf="(!isLoggedIn )">
-        Sign Up
-      </div>
-      <div class="notification" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
-          <i class="fa fa-bell-o fa-3x" ></i>
-          </div>
-      <div class="wish" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
-          <i class="fa fa-heart-o fa-3x" ></i>
-        </div>
-        <div class="cart" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
-          <i class="fa fa-shopping-cart fa-3x" ></i>
-      </div>
-      <div class="profile" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
-          <i class="fa fa-user fa-3x" ></i>
-      </div>
+<div class="signup" >
+    <div class="signin-btn" (click)="signinDialog()" style="cursor: pointer;"  *ngIf="(!isLoggedIn )">
+        Sign In
     </div>
+  <div class="signup-btn" (click)="signupDialog()" style="cursor: pointer;"  *ngIf="(!isLoggedIn )">
+    Sign Up
+  </div>
+  <div class="notification" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
+      <i class="fa fa-bell-o fa-3x" ></i>
+      </div>
+  <div class="wish" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
+      <i class="fa fa-heart-o fa-3x" ></i>
+    </div>
+    <div class="cart" style="cursor: pointer;"  *ngIf="(isLoggedIn )">
+      <i class="fa fa-shopping-cart fa-3x" ></i>
+  </div>
+  <div class="profile" style="cursor: pointer;"  *ngIf="(isLoggedIn )" >
+      
+
+<div id="main_nav1">
+  <ul>
+    
+    <li>
+        <a href="" class="menuhead"> <i class="fa fa-user fa-3x" >&nbsp;</i>
+        </a>
+      <ul>
+        <li>
+          <a href=""  [routerLink]="['/']">My Courses</a>
+        </li>
+        <li>
+          <a href="" [routerLink]="['/profile/', rolelogged, profilelogged]">My Profile</a>
+        </li>
+        <li>
+          <a href="" (click)="signout()" >Logout</a>
+        </li>
+      </ul>
+    </li>
+  
+  </ul>
+    </div>
+  </div>
+</div>
 
   </div>
+
+
+  <!-- <ng-container *ngIf="(isLoggedIn | async)"  >
+    <a [routerLink]="['/profile', isCurrentUser | async ]"   class="black-text right valign-wrapper hide-on-small-only" >
+      <span class="signin">
+          {{isCurrentUser | async}} -->

@@ -126,6 +126,19 @@ div.page-1 >*
 
 }
 
+.db-leftmenu-changepassword {
+    display: grid;
+    height: 45px;
+    background-color: #ffffff;
+    justify-content: left;
+    align-content: center;
+    border-left: 10px solid #ffffff;
+    padding-left: 10px;
+    font-size: 1.4rem;
+    color: #000000;
+
+}
+
 .db-leftmenu-dashboard {
     display: grid;
     height: 45px;
@@ -135,7 +148,7 @@ div.page-1 >*
     align-content: center;
     border-left: 10px solid steelblue;
     padding-left: 10px;
-    /* font-size: 1.4rem; */
+    font-size: 1.4rem;
     color: #000000;
 }
 
@@ -284,4 +297,30 @@ div.page-2 >*
 }
 .inputfile + label * {
 	pointer-events: none;
+}
+
+
+.acntinfo{
+    display: grid;
+    grid-column: 1/-1;
+	justify-items: center;
+	
+	font-size: 2.2rem !important;
+	font-family: OpenSans;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: normal;
+	letter-spacing: normal;
+	text-align: center;
+	color: #1c2550;
+}
+
+.wrap-change-password{
+    font-size: 1.3em;
+}
+
+.alert-danger{
+    color: red;
+    font-size: 1.2em;
 }

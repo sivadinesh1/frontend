@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-
-
-
-
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 
@@ -24,74 +20,87 @@ import { SeekerProfileComponent } from './modules/profiles/seeker-profile/seeker
 import { ProviderProfileComponent } from './modules/profiles/provider-profile/provider-profile.component';
 import { UniversityProfileComponent } from './modules/profiles/university-profile/university-profile.component';
 import { IndustryProfileComponent } from './modules/profiles/industry-profile/industry-profile.component';
+import { AuthguardGuard } from './auth/authguard.guard';
+import { UserActivationComponent } from './auth/user-activation/user-activation.component';
 
 
 
 const appRoutes: Routes = [
-   { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent },
 
-   { path: 'home', component: HomeComponent, data: { title: 'SkillmaTic - Home Page' } },
-   
+  { path: 'home', component: HomeComponent, data: { title: 'SkillmaTic - Home Page' } },
+  { path: 'useractivation/:confirmtokenid', component: UserActivationComponent },
 
-   { path: 'aboutus', component: AboutUsComponent, data: { title: 'SkillmaTic - Aboutus Page' } },
-   { path: 'experts', component: ExpertsComponent, data: { title: 'SkillmaTic - Experts Page' } },
-   { path: 'industry', component: IndustryComponent, data: { title: 'SkillmaTic - Industry Page' } },
-   { path: 'provider', component: ProvidersComponent, data: { title: 'SkillmaTic - Providers Page' } },
-   { path: 'seeker', component: SeekersComponent, data: { title: 'SkillmaTic - Seekers Page' }  },
-   { path: 'universities', component: UniversityComponent, data: { title: 'SkillmaTic - Universities Page' }  },
+  { path: 'aboutus', component: AboutUsComponent, data: { title: 'SkillmaTic - Aboutus Page' } },
+  { path: 'experts', component: ExpertsComponent, data: { title: 'SkillmaTic - Experts Page' } },
+  { path: 'industry', component: IndustryComponent, data: { title: 'SkillmaTic - Industry Page' } },
+  { path: 'provider', component: ProvidersComponent, data: { title: 'SkillmaTic - Providers Page' } },
+  { path: 'seeker', component: SeekersComponent, data: { title: 'SkillmaTic - Seekers Page' } },
+  { path: 'universities', component: UniversityComponent, data: { title: 'SkillmaTic - Universities Page' } },
 
   //  { path: 'dashboard/seeker/:userid', component: SeekerDashboardComponent, data: { title: 'SkillmaTic - Seeker Page' }  },
 
+  {
+    path: 'profile', canActivate: [AuthguardGuard], children: [
 
+      {
+        path: 'seeker/:userid', component: SeekerProfileComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'profile/seeker/:userid' }
 
-  { path: 'profile/seeker/:userid', component: SeekerProfileComponent,
-  resolve: { userdata: DashboardResolver },
-  data: { path: 'profile/seeker/:userid' }
+      },
+      {
+        path: 'provider/:userid', component: ProviderProfileComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'profile/provider/:userid' }
 
-},
-{ path: 'profile/provider/:userid', component: ProviderProfileComponent,
- resolve: { userdata: DashboardResolver },
- data: { path: 'profile/provider/:userid' }
+      },
+      {
+        path: 'university/:userid', component: UniversityProfileComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'profile/university/:userid' }
 
-},
-{ path: 'profile/university/:userid', component: UniversityProfileComponent,
- resolve: { userdata: DashboardResolver },
- data: { path: 'profile/university/:userid' }
+      },
+      {
+        path: 'industry/:userid', component: IndustryProfileComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'profile/industry/:userid' }
+      }]
+    },
+    {
+      path: 'dashboard', canActivate: [AuthguardGuard],  children: [
+      {
+        path: 'seeker/:userid', component: SeekerDashboardComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'dashboard/seeker/:userid' }
 
-},
-{ path: 'profile/industry/:userid', component: IndustryProfileComponent,
- resolve: { userdata: DashboardResolver },
- data: { path: 'profile/industry/:userid' }
-},
+      },
+      {
+        path: 'provider/:userid', component: ProviderDashboardComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'dashboard/provider/:userid' }
 
+      },
+      {
+        path: 'university/:userid', component: UniversityDashboardComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'dashboard/university/:userid' }
 
-   { path: 'dashboard/seeker/:userid', component: SeekerDashboardComponent,
-     resolve: { userdata: DashboardResolver },
-     data: { path: 'dashboard/seeker/:userid' }
-
+      },
+      {
+        path: 'industry/:userid', component: IndustryDashboardComponent,
+        resolve: { userdata: DashboardResolver },
+        data: { path: 'dashboard/industry/:userid' }
+      }]
   },
-  { path: 'dashboard/provider/:userid', component: ProviderDashboardComponent,
-    resolve: { userdata: DashboardResolver },
-    data: { path: 'dashboard/provider/:userid' }
-
-  },
-  { path: 'dashboard/university/:userid', component: UniversityDashboardComponent,
-    resolve: { userdata: DashboardResolver },
-    data: { path: 'dashboard/university/:userid' }
-
-  },
-  { path: 'dashboard/industry/:userid', component: IndustryDashboardComponent,
-    resolve: { userdata: DashboardResolver },
-    data: { path: 'dashboard/industry/:userid' }
-  },
-  {  path: 'auth', loadChildren: './auth.module#AuthModule' },
+  { path: 'auth', loadChildren: './auth.module#AuthModule' },
   { path: 'not-found', component: PageNotFoundComponent },
-    { path: '**', redirectTo: '/not-found'}
-  ];
+  { path: '**', redirectTo: '/not-found' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, {
-    preloadingStrategy: PreloadAllModules // <-This is our preloading
+    preloadingStrategy: PreloadAllModules, 
   })],
   exports: [RouterModule]
 

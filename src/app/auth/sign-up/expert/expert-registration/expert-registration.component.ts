@@ -151,7 +151,7 @@ export class ExpertRegistrationComponent implements OnInit {
 
           localStorage.setItem('token', this.emailsignup[0].firstname);
           this._authservice.isLoginSubject.next(true);
-          this._authservice.isCurrentUserSubject.next(this.emailsignup[0].firstname);
+          
           this.registrationconfirm = 'success';
           console.log("user  created.. successfuly");
           this.responsemsg = "User Successfully Created"; 

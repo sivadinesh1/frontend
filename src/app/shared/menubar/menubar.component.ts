@@ -4,15 +4,15 @@ import {MatDialog, MAT_DIALOG_DATA, MatMenuTrigger} from '@angular/material';
 import { SignindialogueComponent } from '../../auth/signindialogue/signindialogue.component';
 import { SignupdialogueComponent } from '../../auth/signupdialogue/signupdialogue.component';
 import { VideodialogueComponent } from '../../auth/videodialogue/videodialogue.component';
-import { HostListener} from "@angular/core";
+import { HostListener} from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
 
-declare let $ : any;
+declare let $: any;
 
-@HostListener("window:scroll", [])
+@HostListener('window:scroll', [])
 
 @Component({
   selector: 'app-menubar',
@@ -21,106 +21,85 @@ declare let $ : any;
 })
 export class MenubarComponent implements OnInit {
 public isScrolled = false;
-stickyheader:boolean = false;
+stickyheader = true;
 
-isLoggedIn:boolean = false; 
+isLoggedIn = false;
+
+profilelogged = '';
+rolelogged = '';
 
   constructor(public dialog: MatDialog, private _router: Router,
-    private _authservice: AuthService, 
-    @Inject(DOCUMENT) private document: any) { 
-      
-   
+    private _authservice: AuthService,
+    @Inject(DOCUMENT) private document: any) {
+
+      this._authservice.cast.subscribe(data => {
+        this.isLoggedIn = data;
+        console.log('is logged in @@@@>> ' + this.isLoggedIn);
+      });
       console.log('is logged in >> ' + this.isLoggedIn);
+
+      this._authservice.profilecast.subscribe(data => {
+        this.profilelogged = data;
+        console.log('is profile in @@@@>> ' + this.profilelogged);
+      });
+
+      this._authservice.rolecast.subscribe(data => {
+        this.rolelogged = data;
+        console.log('is profile in @@@@>> ' + this.rolelogged);
+      });
+
+
     }
 
   ngOnInit() {
-    this._authservice.cast.subscribe(data => {
-      this.isLoggedIn = data;
-      console.log('is logged in @@@@>> ' + this.isLoggedIn);
-    }) 
+    if (this._authservice.getUserLoggedIn()) {
+      this._authservice.setLoginTrue();
+      this.isLoggedIn = true;
+      this.profilelogged = localStorage.getItem('profilelogged');
+      this.rolelogged = localStorage.getItem('rolelogged');
+
+    } else {
+        this.isLoggedIn = false;
+    }
+    const page = localStorage.getItem('currentpage');
+    console.log('HIGHLIGH >>> ' + page);
   }
 
   @HostListener('window:scroll', [])
 onWindowScroll() {
     const number = window.scrollY;
-    var headerOffset = document.getElementById("myHeader").offsetTop;
+    const headerOffset = document.getElementById('myHeader').offsetTop;
 
-    let page = localStorage.getItem("currentpage");
+    const page = localStorage.getItem('currentpage');
     console.log('HIGHLIGH >>> ' + page);
 
-    if (number > 100 && page=='home') {
+    if (number > 100 && page === 'home') {
       $('#myHeader').css('sticky' );
-      $('.logo').css({'display':'grid' });
-      $('.header').css({'grid-template-columns':'1fr 1.5fr 2fr 1fr 2fr' });
+      $('.logo').css({'display': 'grid' });
+      $('.sticky').css({'grid-template-columns': '1fr 1fr 3fr 1fr 2fr' });
       this.stickyheader = true;
-      
-   } else if (page!='home') {
-      $('#myHeader').css('sticky' );
-      $('.logo').css({'display':'grid' });
-      $('.header').css({'grid-template-columns':'1fr 1.5fr 2fr 1fr 2fr' });
-      this.stickyheader = true;
-     
-  } else if(number < 100 && page=='home') {
-      $('.logo').css({'display':'none' });
-      $('.header').css({'grid-template-columns':'2fr 2fr 1.75fr 2fr' });
-      this.stickyheader = false;
-      
-  } 
-    
-    // if (number > 100 && page=='home') {
-    //     $('#myHeader').css('sticky' );
-    //     $('.logo').css({'display':'grid' });
-    //     $('.header').css({'grid-template-columns':'1fr 1.5fr 2fr 1fr 2fr' });
-    //     this.stickyheader = true;
-        
-    //  } else if (page!='home') {
-    //     $('#myHeader').css('sticky' );
-    //     $('.logo').css({'display':'grid' });
-    //     $('.header').css({'grid-template-columns':'1fr 1.5fr 2fr 1fr 2fr' });
-    //     this.stickyheader = true;
-       
-    // } else {
-    //     $('.logo').css({'display':'none' });
-    //     $('.header').css({'grid-template-columns':'2fr 2fr 1.75fr 2fr' });
-    //     this.stickyheader = false;
-        
-    // }
-    
+
+    } else if (number < 100 && page === 'home') {
+      $('.logo').css({'display': 'none' });
+      $('.sticky').css({'grid-template-columns': '2fr 4fr 1fr 3fr' });
+    }
 }
- 
+
   signinDialog() {
-    this.dialog.open(SignindialogueComponent, {
-      data: {
-        animal: 'panda'
-      }
-    });
+    this.dialog.open(SignindialogueComponent);
   }
 
   signupDialog() {
-    this.dialog.open(SignupdialogueComponent, {
-      data: {
-        animal: 'panda'
-      }
-    });
+    this.dialog.open(SignupdialogueComponent);
   }
 
-  
+  signout() {
+
+    localStorage.clear();
+    this._authservice.setUserLoggedOut();
+    this._authservice.setProfileLogged('');
+    this._authservice.setRoleLogged('');
+    this.isLoggedIn = false;
+  }
 
 }
-
-
-
-// **
-
-// ngOnInit() {
-//   $(function () {
-//     $('.parallax').parallax();
-//     var height = $(window).height();
-
-//     $('#container').css({ 'height': height + 'px' });
-
-
-//   }); // end of document ready
-
-//   this.currentUrl = this._router.url;
-// }

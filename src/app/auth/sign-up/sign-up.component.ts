@@ -87,7 +87,7 @@ export class SignUpComponent implements OnInit {
 
           localStorage.setItem('token', this.emailsignup[0].fullname);
           this._authservice.isLoginSubject.next(true);
-          this._authservice.isCurrentUserSubject.next(this.emailsignup[0].fullname);
+          
 
           console.log("user  created.. successfuly");
           this._cdr.markForCheck();

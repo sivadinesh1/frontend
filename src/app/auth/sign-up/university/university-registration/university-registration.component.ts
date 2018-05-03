@@ -20,14 +20,14 @@ export class UniversityRegistrationComponent implements OnInit {
 
   errmsg: any;
   responsemsg: any;
-  confirmbox: boolean = false;
+  confirmbox = false;
   secretcode: any;
-  otpstatus:any;
+  otpstatus: any;
 
   registrationconfirm: any;
 
   signupForm: FormGroup;
-  PHONE_REGEX= /^[6-9]\d{9}$/;
+  PHONE_REGEX = /^[6-9]\d{9}$/;
   PASS_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/;
 
   emailsignup = [
@@ -40,11 +40,11 @@ export class UniversityRegistrationComponent implements OnInit {
       profiletype: '',
       universityname: '',
       collegename: '',
-      position:'',
+      position: '',
       universitysize: ''
 
     }
-  ]
+  ];
 
   apiresponse: any;
 
@@ -59,88 +59,89 @@ export class UniversityRegistrationComponent implements OnInit {
 
 
   ngOnInit() {
-    this.signupForm =  this._fb.group({
+    this.signupForm = this._fb.group({
       'profile': new FormControl(null, Validators.required),
       'firstname': new FormControl(null, [Validators.required, Validators.maxLength(20)]),
       'lastname': new FormControl(null, [Validators.required, Validators.maxLength(20)]),
       'emailid': new FormControl(null, [Validators.required, Validators.email]),
-      'mobile': new FormControl('', [ Validators.pattern(this.PHONE_REGEX)]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(6),  Validators.maxLength(12), Validators.pattern(this.PASS_REGEX)]),
+      'mobile': new FormControl('', [Validators.pattern(this.PHONE_REGEX)]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(6),
+        Validators.maxLength(12), Validators.pattern(this.PASS_REGEX)]),
       'confirmPassword': new FormControl(null),
       'universityname': new FormControl(null, [Validators.required, Validators.maxLength(60)]),
       'collegename': new FormControl(null, [Validators.required, Validators.maxLength(60)]),
 
-      'position': new FormControl(null, [ Validators.maxLength(60)]),
+      'position': new FormControl(null, [Validators.maxLength(60)]),
       'universitysize': new FormControl(null, [Validators.maxLength(60)]),
-    
-    },
-     {
-      validator: PasswordValidation.MatchPassword // your validation method
-    }
-  );
 
-  this.signupForm.patchValue({
-    profile: 'University',
-   });
- 
+    },
+      {
+        validator: PasswordValidation.MatchPassword // your validation method
+      }
+    );
+
+    this.signupForm.patchValue({
+      profile: 'University',
+    });
+
   }
 
 
   validatemobile() {
-    this.signupForm.controls['mobile'].setValidators([Validators.pattern(this.PHONE_REGEX)])
+    this.signupForm.controls['mobile'].setValidators([Validators.pattern(this.PHONE_REGEX)]);
     this.signupForm.controls['mobile'].updateValueAndValidity();
     return true;
 
   }
- 
- 
- 
+
+
+
 
   onSendOTP() {
 
-    let phno = this.signupForm.value.mobile;
-    console.log('yes>'+ phno);
+    const phno = this.signupForm.value.mobile;
+    console.log('yes>' + phno);
     this.otpstatus = '';
-    if(phno == '') {
-      this.otpstatus = 'Enter Valid Phone number.'
+    if (phno === '') {
+      this.otpstatus = 'Enter Valid Phone number.';
     }
 
     this._authservice.sendOTP(phno).subscribe(
-      data => {        
-        this.apiresponse = data; 
+      data => {
+        this.apiresponse = data;
         console.log('adfas>> ' + JSON.stringify(this.apiresponse));
         console.log('sdsd>>>>>>' + this.apiresponse.body.message);
-        if(this.apiresponse.body.message === 'SUCCESS') {
+        if (this.apiresponse.body.message === 'SUCCESS') {
           console.log('inside ');
           this.secretcode = this.apiresponse.body.additionalInfo;
-          console.log('prin vavl'+ this.secretcode);
+          console.log('prin vavl' + this.secretcode);
         }
-     
-    
-      
-      this._cdr.markForCheck();
-    },
+
+
+
+        this._cdr.markForCheck();
+      },
       error => console.error(error)
-  );
+    );
 
   }
 
   VerifyOTP() {
-    let otp = this.signupForm.value.otp;
+    const otp = this.signupForm.value.otp;
 
     console.log('entere OTP >> ' + otp);
     console.log('entere secret OTP >> ' + this.secretcode);
 
-    if(otp == this.secretcode) {
+    if (otp === this.secretcode) {
       console.log('otp verification success');
-      this.otpstatus = 'OTP Vefification Successful.'
+      this.otpstatus = 'OTP Vefification Successful.';
 
     } else {
       console.log('otp verification failure');
-      this.otpstatus = 'OTP Vefification Failed.'
+      this.otpstatus = 'OTP Vefification Failed.';
     }
 
-  } 
+  }
 
   policyDialog() {
     this.dialog.open(CookiepolicydialogueComponent, {
@@ -176,21 +177,21 @@ export class UniversityRegistrationComponent implements OnInit {
 
     this._authservice.register(this.emailsignup).subscribe(
       data => {
-     
+
         this.apiresponse = data;
-     console.log('ABCD..'+ this.apiresponse.message);
+        console.log('ABCD..' + this.apiresponse.message);
         if (this.apiresponse.message === 'DP-EMAIL') {
-          this.responsemsg = "Email Already Exists for this University";
+          this.responsemsg = 'Email Already Exists for this University';
         } else if (this.apiresponse.message === 'DP-USERNAME') {
-            this.responsemsg = "Username Already Exists";  
+          this.responsemsg = 'Username Already Exists';
         } else if (this.apiresponse.message === 'SUCCESS') {
 
           localStorage.setItem('token', this.emailsignup[0].firstname);
           this._authservice.isLoginSubject.next(true);
-          this._authservice.isCurrentUserSubject.next(this.emailsignup[0].firstname);
+
           this.registrationconfirm = 'success';
-          console.log("user  created.. successfuly");
-          this.responsemsg = "User Successfully Created"; 
+          console.log('user  created.. successfuly');
+          this.responsemsg = 'User Successfully Created';
           this._cdr.markForCheck();
           // localStorage.setItem('currentUser', this.emailsignup[0].fullname);
           // this._cdr.detectChanges();
@@ -206,7 +207,7 @@ export class UniversityRegistrationComponent implements OnInit {
 
 
 }
- 
+
 
 
 

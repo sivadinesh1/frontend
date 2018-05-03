@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpResponse, HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../../environments/environment';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -15,16 +15,17 @@ export class AuthService {
     private checklogin =  new BehaviorSubject<boolean>(false);
     cast = this.checklogin.asObservable();
 
-    isUserLoggedIn: boolean = false;
-  
-    isCurrentUserSubject:BehaviorSubject<string> = new BehaviorSubject<string>(this.getcurrentuser1());
+    private profilelogged = new BehaviorSubject<string>('');
+    profilecast = this.profilelogged.asObservable();
+
+    private rolelogged = new BehaviorSubject<string>('');
+    rolecast = this.rolelogged.asObservable();
+
+    isUserLoggedIn = false;
 
     isLoginSubject = new BehaviorSubject<boolean>(this.hasToken());
 
-    isFBLogin = new BehaviorSubject<boolean>(this.hasToken());
-    isGPLogin = new BehaviorSubject<boolean>(this.hasToken());
-
-    userRole:BehaviorSubject<string> = new BehaviorSubject<string>(this.getUserRole());
+    userRole: BehaviorSubject<string> = new BehaviorSubject<string>(this.getUserRole());
 
     constructor(private _httpclient: HttpClient) {}
 
@@ -45,104 +46,88 @@ export class AuthService {
     }
 
     getUserLoggedIn() {
-      return  this.isUserLoggedIn;
+      return  this.isUserLoggedIn || this.hasToken();
     }
 
+    setProfileLogged(profileid: string) {
+        this.profilelogged.next(profileid);
+    }
 
+    setRoleLogged(roletype: string) {
+        this.rolelogged.next(roletype);
+    }
 
-    private hasToken() : boolean {
+    private hasToken(): boolean {
         return !!localStorage.getItem('token');
       }
 
-      private getcurrentuser1() : string {
+      private getcurrentuser1(): string {
         return localStorage.getItem('token');
       }
 
-      private getUserRole() : string {
+      private getUserRole(): string {
         return localStorage.getItem('userrole');
       }
 
-      isWEBLoggedIn() : Observable<boolean> {
+      isWEBLoggedIn(): Observable<boolean> {
         return this.isLoginSubject.asObservable();
       }
 
-      isFBLoggedIn() : Observable<boolean> {
-        return this.isFBLogin.asObservable();
-      }
-
-      isGPLoggedIn() : Observable<boolean> {
-        return this.isGPLogin.asObservable();
-      }
-
-      getCurrentUser() : Observable<string> {
-          return this.isCurrentUserSubject.asObservable();
-      }
-
-      getRoleType() : Observable<string> {
+      getRoleType(): Observable<string> {
         return this.userRole.asObservable();
     }
 
     emailsignup(emailsignup: any) {
         return this._httpclient.post(this.backendUrl + '/api/emailsignup/', emailsignup);
-     
     }
 
-    
     emailsignin(emailsignin: any) {
         return this._httpclient.post(this.backendUrl + '/api/emailsignin/', emailsignin);
-       
     }
 
-    
-    
-    fbsignup(fbsignup: any) {
-        console.log(JSON.stringify(fbsignup));
-        return this._httpclient.post(this.backendUrl + '/api/fbsignup/', fbsignup);
-    }
-
-    gpsignup(gpsignup: any) {
-
-        return this._httpclient.post(this.backendUrl + '/api/gpsignup/', gpsignup);
-    }
-
+ 
     emailsignin1(username: string, password: string) {
-        let url = this.backendUrl + "/index";
-        let params = 'username='+username+'&password='+password;
-        let httpheaders = new HttpHeaders(
+        const url = this.backendUrl + '/index';
+        const params = 'username=' + username + '&password=' + password;
+        const httpheaders = new HttpHeaders(
             {
             'Content-Type': 'application/x-www-form-urlencoded'
             });
 
         return this._httpclient.post(url, params, {headers: httpheaders, withCredentials : true});
-    
-    }    
+    }
 
-
-    recoverauth(recoverauth:string) {
+    recoverauth(recoverauth: string) {
         return this._httpclient.post(this.backendUrl + '/api/recoverpass/', recoverauth);
     }
-    
-    recoverPassforProfile(email:string, profile: string) {
+
+    recoverPassforProfile(email: string, profile: string) {
         return this._httpclient.post(this.backendUrl + '/api/recoverpass/' + email + '/' + profile, {observe: 'response'} );
     }
 
-
-   
-    
-      
-
     logout() {
-        let url = this.backendUrl + "/logout";
-        return this._httpclient.get(url, {withCredentials: true});	
+        const url = this.backendUrl + '/logout';
+        return this._httpclient.get(url, {withCredentials: true});
     }
-
 
     register(registerform: any) {
         return this._httpclient.post(this.backendUrl + '/api/register', registerform);
-      }
+    }
 
-      sendOTP(mobilenumber: any) {
+    sendOTP(mobilenumber: any) {
         return this._httpclient.post(this.backendUrl + '/api/sendotp/', mobilenumber, {observe: 'response'});
-      }
-    
+    }
+
+    verifyOTP(otpsessionid: any, enteredotp: any) {
+        return this._httpclient.post(this.backendUrl + '/api/verifyotp/' + otpsessionid + '/' + enteredotp,  {observe: 'response'});
+    }
+
+    userActivation(confirmtoken: any) {
+        return this._httpclient.post(this.backendUrl + '/api/useractivation/' + confirmtoken , {observe: 'response'});
+    }
+
+    changePassword(password: any, userid: string) {
+        return this._httpclient.post(this.backendUrl + '/api/changepassword/' + password + '/' + userid, {observe: 'response'});
+    }
+
 }

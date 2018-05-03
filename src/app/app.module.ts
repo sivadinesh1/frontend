@@ -32,6 +32,7 @@ import { DashboardApiService } from './services/dashboard-api.service';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { DashboardResolver } from './services/dashboard-resolver.service';
+import { AuthguardGuard } from './auth/authguard.guard';
 
 
 @NgModule({
@@ -43,16 +44,16 @@ import { DashboardResolver } from './services/dashboard-resolver.service';
     ProviderDashboardComponent,
     UniversityDashboardComponent,
     ExpertDashboardComponent,
-   
-   
+
+
     UniversityComponent,
     ExpertsComponent,
     SeekersComponent,
     ProvidersComponent,
     IndustryComponent,
-    
-   
-    
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,7 @@ import { DashboardResolver } from './services/dashboard-resolver.service';
     HttpClientModule,
     AppRoutingModule,
     MatButtonModule,
-    
+
     MatIconModule,
     MatDialogModule,
     NgProgressModule.forRoot(),
@@ -69,10 +70,11 @@ import { DashboardResolver } from './services/dashboard-resolver.service';
   ],
 
   entryComponents: [
-    
+
 ],
-  
-  providers: [  AuthService, DialogService, DashboardApiService, DashboardResolver, CanDeactivateGuard,{provide: MAT_DATE_LOCALE, useValue: 'en-IN'}, CommonApiService],
+
+  providers: [  AuthService, AuthguardGuard, DialogService, DashboardApiService, DashboardResolver,
+    CanDeactivateGuard, {provide: MAT_DATE_LOCALE, useValue: 'en-IN'}, CommonApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

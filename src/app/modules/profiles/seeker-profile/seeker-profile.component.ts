@@ -12,7 +12,7 @@ import { AuthService } from '../../../auth/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 import { PasswordValidation } from '../../../shared/utils/PasswordValidation';
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+declare let $: any;
 
 @Component({
   selector: 'app-seeker-profile',
@@ -28,11 +28,19 @@ export class SeekerProfileComponent implements OnInit {
 
   editProfileForm: FormGroup;
 
+  changePasswordForm: FormGroup;
+
   page1 = true;
   page2 = false;
+  page3 = false;
 
   responsemsg: any;
   selectedResumeFile: any;
+  selectedProfilePic: any;
+
+  picuploaderror: any;
+
+  passwordstatusmsg: any;
 
   genders: string[] = ['Male', 'Female'];
   nationalities: string[] = ['India', 'Australia', 'America', 'Pakistan', 'Srilanka'];
@@ -104,11 +112,15 @@ export class SeekerProfileComponent implements OnInit {
   apiresponse: any;
 
   constructor(private _commonapiservice: CommonApiService, private _fb: FormBuilder,
-    private _route: ActivatedRoute,
+    private _route: ActivatedRoute, private _authservice: AuthService,
     private _router: Router, private _cdr: ChangeDetectorRef
 
 
   ) {
+
+    this._router.events.subscribe((e: any) => {
+      console.log('Router event:', e);
+    });
 
   }
 
@@ -224,6 +236,26 @@ this.editProfileForm.patchValue({
 
  });
 
+//  passwordConfirm: new FormControl('', Validators.minLength(2)),
+//     }, passwordMatchValidator);
+
+ this.changePasswordForm =  this._fb.group({
+  'password': new FormControl(null, [Validators.required, Validators.minLength(6),
+    Validators.maxLength(12), Validators.pattern(this.PASS_REGEX)]),
+  'confirmPassword': new FormControl(null),
+
+}, {
+  validator: PasswordValidation.MatchPassword // your validation method
+}
+);
+
+
+function passwordMatchValidator(g: FormGroup) {
+  console.log('is matc call');
+       return g.get('password').value === g.get('confirmPassword').value
+          ? null : {'mismatch': true};
+    }
+
   }
 
 
@@ -295,7 +327,27 @@ this.editProfileForm.patchValue({
 
   }
 
+  changePasswordMenu(event) {
+    $('.db-leftmenu-changepassword').css({'background-color': '#e7f9fc' });
+    $('.db-leftmenu-dashboard').css({'background-color': '#ffffff' });
 
+    $('.db-leftmenu-changepassword').css({'border-left': '10px solid steelblue' });
+    $('.db-leftmenu-dashboard').css({'border-left': '10px solid #ffffff' });
+
+    this.page3 = true;
+    this.page1 = false;
+    this.page2 = false;
+  }
+
+  clickDashboardMenu(event) {
+    $('.db-leftmenu-changepassword').css({'background-color': '#ffffff' });
+    $('.db-leftmenu-changepassword').css({'border-left': '10px solid #ffffff' });
+    $('.db-leftmenu-dashboard').css({'background-color': '#e7f9fc' });
+    $('.db-leftmenu-dashboard').css({'border-left': '10px solid steelblue' });
+    this.page3 = false;
+    this.page1 = true;
+    this.page2 = false;
+  }
 
   handleInputChange (event) {
 
@@ -306,7 +358,7 @@ this.editProfileForm.patchValue({
     console.log('file size >> ' + event.target.files[0].size);
     console.log('file type >> ' + event.target.files[0].type);
 
-    this.selectedResumeFile = event.target.files[0].name;
+    this.selectedProfilePic = event.target.files[0].name;
 
     const image = event.target.files[0];
 
@@ -315,8 +367,16 @@ this.editProfileForm.patchValue({
 
     if (!image.type.match(pattern)) {
         console.error('File is not an image');
+        alert('Not a Image File');
+        this.picuploaderror = 'Not a Image File';
         // of course you can show an alert message here
         return;
+    }
+
+    if (event.target.files[0].size > 3000000) {
+      alert('File Size Should be less than 3MB.');
+      this.picuploaderror = 'File Size should be less than 3MB';
+      return;
     }
 
     this.addcategoryimage(image);
@@ -338,6 +398,7 @@ this.editProfileForm.patchValue({
          this.responsemsg = data;
 
          if (this.responsemsg.message === 'success') {
+          window.location.reload();
            this.responsemsg = 'Cover Image successfully uploaded.';
          } else if (this.responsemsg.message === 'Max File Size') {
            this.responsemsg = 'Max File size should be < 2MB.';
@@ -405,6 +466,40 @@ this.editProfileForm.patchValue({
          }
        };
   }
+
+
+
+  changePassword() {
+    const password = this.changePasswordForm.value.password;
+    
+
+    this._authservice.changePassword(password, this.urlpath.userid).subscribe(
+      data => {
+        this.apiresponse = data;
+        console.log('adfas>> ' + JSON.stringify(this.apiresponse));
+        console.log('sdsd>>>>>>' + this.apiresponse.message);
+  
+        if (this.apiresponse.message === 'SUCCESS') {
+          this.passwordstatusmsg = 'Change Password Successful';
+          if (this.changePasswordForm) {
+            this.changePasswordForm.reset();
+          }
+          console.log('success');
+        } else if (this.apiresponse.message === 'FAILURE') {
+          this.passwordstatusmsg = 'Oops! Something went wrong in Change Password.';
+          console.log('failure');
+        }
+  
+  
+    },
+      error => console.error(error)
+  );
+  
+
+  }
+
+ 
+
 
 
   }

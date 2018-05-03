@@ -86,7 +86,7 @@ export class SignInComponent implements OnInit {
          
             localStorage.setItem('token', this.loginform[0].username);
             this._authservice.isLoginSubject.next(true);
-            this._authservice.isCurrentUserSubject.next(this.apiresponse.additionalInfo);
+            
 
             this._authservice.userRole.next(obj.isadmin);
 

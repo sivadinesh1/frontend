@@ -111,14 +111,18 @@ export class SignindialogueComponent implements OnInit {
 
             localStorage.setItem('token', this.loginform[0].emailid);
             this._authservice.isLoginSubject.next(true);
-            this._authservice.isCurrentUserSubject.next(this.apiresponse.additionalInfo);
+            
 
             this._authservice.userRole.next(obj.isadmin);
 
             this._authservice.setUserLoggedIn();
             this._authservice.setLoginTrue();
+            this._authservice.setProfileLogged(obj.userId);
+            this._authservice.setRoleLogged(obj.profiletype.toLowerCase());
 
             localStorage.setItem('currentpage', '');
+            localStorage.setItem('profilelogged', obj.userId);
+            localStorage.setItem('rolelogged', obj.profiletype.toLowerCase());
 
            // this._cdr.markForCheck();
             this.dialog.closeAll();
@@ -135,9 +139,3 @@ export class SignindialogueComponent implements OnInit {
 }
 
 
-
-// localStorage.setItem('currentUser', JSON.stringify({ token: token, name: name }));
-// Load from local storage
-
-// var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-// var token = currentUser.token; // your token
